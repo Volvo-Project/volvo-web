@@ -1,36 +1,6 @@
-/*
 
-TemplateMo 589 lugx gaming
-
-https://templatemo.com/tm-589-lugx-gaming
-
-*/
-
-/* ---------------------------------------------
-Table of contents
-------------------------------------------------
-01. font & reset css
-02. reset
-03. global styles
-04. header
-05. banner
-06. features
-07. testimonials
-08. contact
-09. footer
-
---------------------------------------------- */
-/* 
----------------------------------------------
-font & reset css
---------------------------------------------- 
-*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
-/* 
----------------------------------------------
-reset
---------------------------------------------- 
-*/
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
 pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
 s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
@@ -739,7 +709,7 @@ Banner Style
   border-radius: 25px;
 }
 
-.main-banner .right-image span.price {
+.main-banner .right-image span.precio {
   position: absolute;
   right: 20px;
   top: 20px;
@@ -752,7 +722,7 @@ Banner Style
   padding: 4px 15px;
 }
 
-.main-banner .right-image span.offer {
+.main-banner .right-image span.oferta {
   position: absolute;
   left: -25px;
   bottom: -25px;
@@ -837,7 +807,7 @@ Trending Style
   overflow: hidden;
 }
 
-.trending .item span.price em {
+.trending .item span.precio em {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -845,7 +815,7 @@ Trending Style
   display: block;
 }
 
-.trending .item span.price {
+.trending .item span.precio {
   text-align: right;
   position: absolute;
   right: 20px;
@@ -1234,7 +1204,7 @@ Shop Page Style
   overflow: hidden;
 }
 
-.trending-box .item span.price em {
+.trending-box .item span.precio em {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -1242,7 +1212,7 @@ Shop Page Style
   display: block;
 }
 
-.trending-box .item span.price {
+.trending-box .item span.precio {
   text-align: right;
   position: absolute;
   right: 20px;
@@ -1355,13 +1325,13 @@ Single Page Style
   margin-bottom: 20px;
 }
 
-.single-product span.price {
+.single-product span.precio {
   font-size: 27px;
   font-weight: 700;
   color: #0071f8;
 }
 
-.single-product span.price em {
+.single-product span.precio em {
   font-style: normal;
   color: #c8c8c8;
   font-size: 17px;
@@ -1586,7 +1556,7 @@ body {
   .header-area {
     top: 0;
   }
-  .main-banner .right-image span.offer {
+  .main-banner .right-image span.oferta {
     left: 20px;
     bottom: 20px;
   }
