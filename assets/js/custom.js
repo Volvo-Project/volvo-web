@@ -2,7 +2,6 @@
 	
 	"use strict";
 
-	// Page loading animation
 	$(window).on('load', function() {
 
         $('#js-preloader').addClass('loaded');
@@ -56,7 +55,6 @@
 	}
 
 
-	// Menu Dropdown Toggle
 	if($('.menu-trigger').length){
 		$(".menu-trigger").on('click', function() {	
 			$(this).toggleClass('active');
@@ -64,8 +62,6 @@
 		});
 	}
 
-
-	// Menu elevator animation
 	$('.scroll-to-section a[href*=\\#]:not([href=\\#])').on('click', function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 			var target = $(this.hash);
@@ -85,7 +81,6 @@
 	});
 
 
-	// Page loading animation
 	$(window).on('load', function() {
 		if($('.cover').length){
 			$('.cover').parallax({
