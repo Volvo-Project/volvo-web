@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIENDA VOLVO</title>
-    
+
     <link href= "vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
 
     <link rel="stylesheet" href="assets/css/fontawesome.css">
@@ -60,7 +60,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum possimus similique molestias aspernatur ab, odit aperiam. Facilis quidem, quibusdam labore sequi autem vero, minus dolore voluptatum, officiis doloremque iure eligendi?</p>
                     <div class="search-input">
                         <form id="search" action="#">
-                            <input type="text" placeholder="Escribe algo" id="searchText" name="searchKeyboard">
+                            <input type="text" placeholder="Escribe algo" id="searchText" name="searchKeyboard" onkeypress="handle">
                                 <button>Buscar ahora</button>
                         </form>
                     </div>
@@ -89,7 +89,7 @@
                         </div>
                         <h4>Cambiar esto</h4>
                     </div>
-                </a> 
+                </a>
             </div><!--Acá termina-->
 
             <div class="col-lg-3 col-md-6"> <!--Acá empieza-->
@@ -100,7 +100,7 @@
                         </div>
                         <h4>Cambiar esto</h4>
                     </div>
-                </a> 
+                </a>
             </div><!--Acá termina-->
 
             <div class="col-lg-3 col-md-6"> <!--Acá empieza-->
@@ -111,7 +111,7 @@
                         </div>
                         <h4>Cambiar esto</h4>
                     </div>
-                </a> 
+                </a>
             </div><!--Acá termina-->
 
             <div class="col-lg-3 col-md-6"> <!--Acá empieza-->
@@ -122,7 +122,7 @@
                         </div>
                         <h4>Cambiar esto</h4>
                     </div>
-                </a> 
+                </a>
             </div><!--Acá termina-->
         </div>
     </div>
@@ -145,9 +145,15 @@
             <div class="col-lg-3 col-md-6">
                 <div class="item">
                     <div class="thumb">
-                        <a href="detalle-producto.html"><img src="assets/images/trending-01.jpg"></a>
+                        <a href="detalle-producto.html"><img src="assets/images/trending-01.jpg" alt="trending-01.jpg"></a>
+                        <span class="precio"><em>$29.990</em>$20.000</span>
                     </div>
                 </div>
+            </div>
+            <div class="down-content">
+                <span class="cateogry">Acción</span>
+                <h4>Assassin's Creed</h4>
+                <a href="detalle-producto.html"><i class="fa fa-shopping-bag"></i></a>
             </div>
         </div>
     </div>
