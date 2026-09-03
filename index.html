@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIENDA VOLVO</title>
+    <title>Volvo | Tienda de videojuegos</title>
+    <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
 
-    <link href= "vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body>
   <div id="js-preloader" class="js-preloader">
@@ -31,15 +32,21 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <a href="#" class="logo">
-                        <img src="https://www.volvocars.com/static/shared/images/volvo-spread-wordmark.svg" alt="Logo volvo" style="width: 158px;">
+                        <img src="https://www.volvocars.com/static/shared/images/volvo-spread-wordmark.svg" alt="Logo volvo" style="width: 200px; margin: 10px; padding: 10px;">
                     </a>
 
                     <ul class="nav">
                         <li><a href="index.html">Inicio</a></li>
-                        <li><a href="tienda.html">Nuestra tienda</a></li>
-                        <li><a href="detalle-producto.html">Detalle producto</a></li>
-                        <li><a href="contacto.html">Contactanos</a></li>
-                        <li><a href="#">Iniciar sesión</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="blogs.html">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="login.html">Iniciar sesión</a></li>
+                        <li>
+                            <a href="carrito.html" aria-label="Ver carrito de compras">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </li>
                     </ul>
                     <a class="menu-trigger">
                         <span>Menu</span>
@@ -55,12 +62,12 @@
         <div class="row">
             <div class="col-lg-6 align-self-center">
                 <div class="caption header-text">
-                    <h6>Bienvenidos a Volvo</h6>
-                    <h2>La mejor página para comprar tus juegos favoritos</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum possimus similique molestias aspernatur ab, odit aperiam. Facilis quidem, quibusdam labore sequi autem vero, minus dolore voluptatum, officiis doloremque iure eligendi?</p>
+                    <h6>Bienvenido a Volvo</h6>
+                    <h2>La mejor página para comprar y opinar sobre tus juegos favoritos</h2>
+                    <p>Encuentra un catalogo extendido de videojuegos</p>
                     <div class="search-input">
                         <form id="search" action="#">
-                            <input type="text" placeholder="Escribe algo" id="searchText" name="searchKeyboard" onkeypress="handle">
+                            <input type="text" placeholder="Busca tu juego" id="searchText" name="searchKeyboard">
                                 <button>Buscar ahora</button>
                         </form>
                     </div>
@@ -68,8 +75,8 @@
             </div>
             <div class="col-lg-4 offset-lg-2">
                 <div class="right-image">
-                    <img src="assets/images/banner-bg.jpg" alt="BANNER BACKGROUND JPG">
-                    <span class="precio">$69.990</span>
+                    <img src="assets/images/banner-image.jpg" alt="Imagen promocional de videojuego">
+                    <span class="precio">$12.900</span>
                     <span class="oferta">-50%</span>
                 </div>
             </div>
@@ -85,9 +92,20 @@
                 <a href="#">
                     <div class="item">
                         <div class="image">
-                            <img src="assets/images/featured-01.png" alt="" style="max-width: 44px;">
+                            <img src="assets/images/featured-01.png" alt="Entrega inmediata" style="max-width: 44px;">
                         </div>
-                        <h4>Cambiar esto</h4>
+                        <h4>Entrega inmediata</h4>
+                    </div>
+                </a>
+            </div><!--Acá termina-->
+
+            <div class="col-lg-3 col-md-6"> <!--Acá empieza-->
+                <a href="contacto.html">
+                    <div class="item">
+                        <div class="image">
+                            <img src="assets/images/featured-02.png" alt="Contáctanos" style="max-width: 44px;">
+                        </div>
+                        <h4>Contáctanos</h4>
                     </div>
                 </a>
             </div><!--Acá termina-->
@@ -96,31 +114,20 @@
                 <a href="#">
                     <div class="item">
                         <div class="image">
-                            <img src="assets/images/featured-02.png" alt="" style="max-width: 44px;">
+                            <img src="assets/images/featured-03.png" alt="Novedades" style="max-width: 44px;">
                         </div>
-                        <h4>Cambiar esto</h4>
+                        <h4>Novedades</h4>
                     </div>
                 </a>
             </div><!--Acá termina-->
 
             <div class="col-lg-3 col-md-6"> <!--Acá empieza-->
-                <a href="#">
+                <a href="blogs.html">
                     <div class="item">
                         <div class="image">
-                            <img src="assets/images/featured-03.png" alt="" style="max-width: 44px;">
+                            <img src="assets/images/featured-04.png" alt="Blog" style="max-width: 44px;">
                         </div>
-                        <h4>Cambiar esto</h4>
-                    </div>
-                </a>
-            </div><!--Acá termina-->
-
-            <div class="col-lg-3 col-md-6"> <!--Acá empieza-->
-                <a href="#">
-                    <div class="item">
-                        <div class="image">
-                            <img src="assets/images/featured-04.png" alt="" style="max-width: 44px;">
-                        </div>
-                        <h4>Cambiar esto</h4>
+                        <h4>Blog</h4>
                     </div>
                 </a>
             </div><!--Acá termina-->
@@ -145,28 +152,242 @@
             <div class="col-lg-3 col-md-6">
                 <div class="item">
                     <div class="thumb">
-                        <a href="detalle-producto.html"><img src="assets/images/trending-01.jpg" alt="trending-01.jpg"></a>
-                        <span class="precio"><em>$29.990</em>$20.000</span>
+                        <a href="detalle-producto.html">
+                            <img src="assets/images/trending-01.jpg" alt="Portada de Warframe">
+                        </a>
+                    </div>
+                    <div class="down-content">
+                        <h4>Warframe</h4>
+                        <span>$12.990</span>
                     </div>
                 </div>
             </div>
-            <div class="down-content">
-                <span class="cateogry">Acción</span>
-                <h4>Assassin's Creed</h4>
-                <a href="detalle-producto.html"><i class="fa fa-shopping-bag"></i></a>
+            <div class="col-lg-3 col-md-6">
+                <div class="item">
+                    <div class="thumb">
+                        <a href="detalle-producto.html">
+                            <img src="assets/images/trending-02.jpg" alt="Portada de Tower of Fantasy">
+                        </a>
+                    </div>
+                    <div class="down-content">
+                        <h4>Tower of Fantasy</h4>
+                        <span>$17.990</span>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="item">
+                    <div class="thumb">
+                        <a href="detalle-producto.html">
+                            <img src="assets/images/trending-03.jpg" alt="Portada Super people">
+                        </a>
+                    </div>
+                    <div class="down-content">
+                        <h4>Super people</h4>
+                        <span>$7.900</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="item">
+                    <div class="thumb">
+                        <a href="detalle-producto.html">
+                            <img src="assets/images/trending-04.jpg" alt="Portada Yugi Oh">
+                        </a>
+                    </div>
+                    <div class="down-content">
+                        <h4>Yugi-Oh</h4>
+                        <span>Gratis</span>
+                    </div>
+                </div>
+            </div>
+
     </div>
   </div>
 
+  <div class="section most-played">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <h6>LO MÁS TOP</h6>
+            <h2>Más Jugados</h2>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="main-button">
+            <a href="tienda.html">Ver todos</a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6">
+          <div class="item">
+            <div class="thumb">
+              <a href="detalle-producto.html"><img src="assets/images/top-game-01.jpg" alt="Portada de juego destacado"></a>
+            </div>
+            <div class="down-content">
+                <span class="category">Aventura</span>
+                <h4>Warframe</h4>
+                <a href="detalle-producto.html">Explorar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6">
+          <div class="item">
+            <div class="thumb">
+              <a href="detalle-producto.html"><img src="assets/images/top-game-02.jpg" alt="Portada de juego destacado"></a>
+            </div>
+            <div class="down-content">
+                <span class="category">Aventura</span>
+                <h4>Tower of Fantasy</h4>
+                <a href="detalle-producto.html">Explorar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6">
+          <div class="item">
+            <div class="thumb">
+              <a href="detalle-producto.html"><img src="assets/images/top-game-03.jpg" alt="Portada de juego destacado"></a>
+            </div>
+            <div class="down-content">
+                <span class="category">Aventura</span>
+                <h4>Super People</h4>
+                <a href="detalle-producto.html">Explorar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6">
+          <div class="item">
+            <div class="thumb">
+              <a href="detalle-producto.html"><img src="assets/images/top-game-04.jpg" alt="Portada de juego destacado"></a>
+            </div>
+            <div class="down-content">
+                <span class="category">Aventura</span>
+                <h4>Yugi-Oh</h4>
+                <a href="detalle-producto.html">Explorar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6">
+          <div class="item">
+            <div class="thumb">
+              <a href="detalle-producto.html"><img src="assets/images/top-game-05.jpg" alt="Portada de juego destacado"></a>
+            </div>
+            <div class="down-content">
+                <span class="category">Aventura</span>
+                <h4>Assassin's Creed</h4>
+                <a href="detalle-producto.html">Explorar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6">
+          <div class="item">
+            <div class="thumb">
+              <a href="detalle-producto.html"><img src="assets/images/top-game-06.jpg" alt="Portada de juego destacado"></a>
+            </div>
+            <div class="down-content">
+                <span class="category">Aventura</span>
+                <h4>Assassin's Creed</h4>
+                <a href="detalle-producto.html">Explorar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="section categories">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="section-heading">
+            <h6>Categorías</h6>
+            <h2>Categorías Principales</h2>
+          </div>
+        </div>
+        <div class="col-lg col-sm-6 col-xs-12">
+          <div class="item">
+            <h4>Acción</h4>
+            <div class="thumb">
+              <a href="detalle-producto.html"><img src="assets/images/categories-01.jpg" alt="Categoría Acción"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg col-sm-6 col-xs-12">
+          <div class="item">
+            <h4>Aventura</h4>
+            <div class="thumb">
+              <a href="detalle-producto.html"><img src="assets/images/categories-02.jpg" alt="Categoría Aventura"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg col-sm-6 col-xs-12">
+          <div class="item">
+            <h4>Deportes</h4>
+            <div class="thumb">
+              <a href="detalle-producto.html"><img src="assets/images/categories-03.jpg" alt="Categoría Deportes"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg col-sm-6 col-xs-12">
+          <div class="item">
+            <h4>Estrategia</h4>
+            <div class="thumb">
+              <a href="detalle-producto.html"><img src="assets/images/categories-04.jpg" alt="Categoría Estrategia"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg col-sm-6 col-xs-12">
+          <div class="item">
+            <h4>Terror</h4>
+            <div class="thumb">
+              <a href="detalle-producto.html"><img src="assets/images/categories-05.jpg" alt="Categoría Terror"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-
-
-
-
-
+  <div class="section cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="shop">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="section-heading">
+                  <h6>Nuestra Tienda</h6>
+                  <h2>¡Haz tu Pre-Compra y Obtén los Mejores <em>Precios</em> para Ti!</h2>
+                </div>
+                <p>Reserva tus juegos favoritos con anticipación y accede a descuentos exclusivos por tiempo limitado.</p>
+                <div class="main-button">
+                  <a href="tienda.html">Comprar Ahora</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 offset-lg-2 align-self-end">
+          <div class="subscribe">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="section-heading">
+                  <h6>NEWSLETTER</h6>
+                  <h2>Obtén hasta $30.000 de Descuento al <em>Suscribirte</em> a Nuestro Newsletter!</h2>
+                </div>
+                <div class="search-input">
+                  <form id="subscribe" action="#">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tu correo electrónico...">
+                    <button type="submit">Suscribirme Ahora</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="container">
@@ -175,14 +396,6 @@
         </div>
     </div>
   </footer>
-
-
-
-
-
-
-
-
 
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
