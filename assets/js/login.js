@@ -13,18 +13,20 @@ form.addEventListener("submit", (e) => {
     const dominios = ["@duoc.cl", "@profesor.duoc.cl", "@gmail.com"];
     const dominioOk = dominios.some((d) => correo.endsWith(d));
 
-
-
     if (correo === "") {
         errorCorreo.textContent = "El correo es obligatorio";
         valido = false;
     } else if (correo.length > 100) {
         errorCorreo.textContent = "Maximo 100 caracteres";
         valido = false;
-    } else if (!dominioOk) {
+    }else if (!dominioOk) {
         errorCorreo.textContent = "Debe terminar en @duoc.cl, @profesor.duoc.cl o @gmail.com";
         valido = false;
-    } else {
+    } else if (correo.startsWith("@")) {
+        errorCorreo.textContent = "Inrese un correo válido"
+        valido = false
+    }
+    else {
         errorCorreo.textContent = "";
     }
     const contrasena = document.querySelector('#contrasena').value.trim();

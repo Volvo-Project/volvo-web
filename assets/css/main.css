@@ -1599,3 +1599,18 @@ body {
 @media (max-width: 1200px) {
 
 }
+
+.img-blog{
+  border-radius: 10px;
+  max-width: 720px;
+  margin: 10px auto;
+  display: block;
+}
+
+article h2{
+
+  text-align: center;
+  max-width: 720px;
+
+  
+}

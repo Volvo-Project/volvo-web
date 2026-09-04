@@ -71,24 +71,22 @@
         </div>
     </div>
     <main class="container">
-      <form id="formLogin" novalidate>
-
+      <form id="form-group" novalidate>
         <div class="campo">
-          <label for="correo">Correo</label>
-          <input type="email" id="correo" name="correo" maxlength="100">
+          <label for="exampleInputEmail1">Correo</label>
+          <input type="email" id="correo" name="correo" maxlength="100" placeholder="Ingrese su correo" required>
           <span class="error" id="errorCorreo"></span>
         </div>
 
-        <div class="campo">
+          <div class="campo">
           <label for="contrasena">Contraseña</label>
-          <input type="password" id="contrasena" name="contrasena" maxlength="10">
+          <input type="password" id="contrasena" name="contrasena" maxlength="10" placeholder="Ingrese su contraseña" required>
           <span class="error" id="errorContrasena"></span>
         </div>
 
 
         <button type="submit">Ingresar</button>
         <p id="aviso" class="aviso" hidden></p>
-
       </form>
     </main>
 
