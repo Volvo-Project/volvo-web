@@ -40,7 +40,7 @@
 
                         <ul class="nav">
                             <li><a href="index.html">Inicio</a></li>
-                            <li><a href="tienda.html">Productos</a></li>
+                            <li><a href="producto.html">Productos</a></li>
                             <li><a href="nosotros.html">Nosotros</a></li>
                             <li><a href="blogs.html">Blog</a></li>
                             <li><a href="contacto.html">Contacto</a></li>
@@ -70,44 +70,41 @@
             </div>
         </div>
     </div>
-    <main class="container">
-      <form id="formContacto" novalidate>
+<main class="container py-5 d-flex justify-content-center">
+  <form id="formContacto" novalidate class="p-4 shadow rounded" style="max-width: 500px; width: 100%;">
 
-        <!-- Campo 1: Nombre (HECHO, de ejemplo) -->
-        <div class="campo">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" maxlength="100">
-          <span class="error" id="errorNombre"></span>
-        </div>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" maxlength="100" placeholder="Ingrese su nombre">
+      <span class="error text-danger small" id="errorNombre"></span>
+    </div>
 
-        <div class="campo">
-          <label for="correo">Correo</label>
-          <input type="email" id="correo" name="correo" maxlength="100">
-          <span class="error" id="errorCorreo"></span>
-        </div>
-        <div class="campo">
-          <label for="comentario">Comentario</label>
-          <textarea id="comentario" name="comentario" maxlength="500"></textarea>
-          <span class="error" id="errorComentario"></span>
-        </div>
-        
+    <div class="mb-3">
+      <label for="correo" class="form-label">Correo</label>
+      <input type="email" class="form-control" id="correo" name="correo" maxlength="100" placeholder="Ingrese su correo">
+      <span class="error text-danger small" id="errorCorreo"></span>
+    </div>
 
-        <button type="submit">Enviar</button>
-        <p id="aviso" class="aviso" hidden></p>
+    <div class="mb-3">
+      <label for="comentario" class="form-label">Comentario</label>
+      <textarea class="form-control" id="comentario" name="comentario" maxlength="500" rows="5" placeholder="Escribe tu comentario"></textarea>
+      <span class="error text-danger small" id="errorComentario"></span>
+    </div>
 
-      </form>
-    </main>
+    <button type="submit" class="btn btn-primary w-100">Enviar</button>
+    <p id="aviso" class="aviso mt-3 text-center" hidden></p>
+
+  </form>
+</main>
 
     <footer>
     <div class="container">
-      <div class="col-lg-12">
-        <p><a rel="nofollow" href="https://github.com/Volvo-Project" target="_blank">&copy; Volvo.</a>Todos los derechos
-          reservados.
-          Desarrollado por: <a rel="nofollow" href="https://github.com/neurott" target="_blank">Nicolás Olivares,</a>
-          <a rel="nofollow" href="https://github.com/Matyy98" target="_blank"> Matías Rodriguez y
-            <a rel="nofollow" href="https://github.com/EmilianoCerda" target="_blank">Emiliano Cerda</a>
-        </p>
-      </div>
+        <div class="col-lg-12">
+            <p><a rel="nofollow" href="https://github.com/Volvo-Project" target="_blank">&copy; Volvo. </a>Todos los derechos reservados.
+                Desarrollado por: <a rel="nofollow" href="https://github.com/neurott" target="_blank">Nicolás Olivares,</a>
+                <a rel="nofollow" href="https://github.com/Matyy98" target="_blank"> Matías Rodriguez</a> y
+                <a rel="nofollow" href="https://github.com/EmilianoCerda" target="_blank">Emiliano Cerda</a></p>
+        </div>
     </div>
   </footer>
 

@@ -44,9 +44,12 @@ form.addEventListener("submit", (e) => {
 
 
     if (valido) {
-        aviso.textContent = "Aviso: Sesion iniciada correctamente";
+        aviso.textContent = "Aviso: Sesión iniciada correctamente";
+        aviso.className = "aviso mt-3 text-center alert alert-success";
         aviso.hidden = false;
         form.reset();
+    } else {
+        aviso.hidden = true;
     }
 
 
