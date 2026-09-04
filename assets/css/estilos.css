@@ -2,3 +2,17 @@
    estilos.css - Estilos propios del equipo Volvo
    Aquí van SOLO nuestros ajustes. No tocamos main.css (plantilla).
    ============================================================ */
+.aviso {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #d4edda;
+  color: #155724;
+  border-radius: 4px;
+}
+.error {
+  color: #c0392b;
+  font-size: 0.85rem;
+}
+.campo {
+  margin-bottom: 14px;
+}
