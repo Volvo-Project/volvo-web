@@ -597,12 +597,14 @@ body {
 }
 
 .main-banner {
-  background-image: url(../images/banner-bg.jpg);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 70%), url(../images/wj1cjy6hy0t51.jpg);
   border-radius: 0px 0px 150px 150px;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 225px 0px;
+
+  transition: opacity 0.4s ease-in-out, background-position 0.5s ease-in-out;
 }
 
 .main-banner .caption h6 {
@@ -682,13 +684,13 @@ body {
 }
 
 .main-banner .right-image img {
-  border-radius: 25px;
+  border-radius: 15px;
 }
 
 .main-banner .right-image span.precio {
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 10px;
+  top: 8px;
   border-radius: 25px;
   background-color: #008af8;
   font-size: 22px;
@@ -715,7 +717,11 @@ body {
   line-height: 100px;
 }
 
-
+.main-banner .right-image img,
+.main-banner .right-image .precio,
+.main-banner .right-image .oferta {
+    transition: all 0.5s ease-in-out;
+}
 
 /*
 ---------------------------------------------
