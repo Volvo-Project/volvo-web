@@ -34,7 +34,7 @@ function renderizarTablaUsuarios() {
       <td>${p.nombre}</td>
       <td>${p.apellidos}</td>
       <td>${p.correo}</td>
-      <td>${p.tipoUsuario}</td>
+      <td>${p.tipo}</td>
       <td>
         <a href="usuario-form.html?id=${p.run}">Editar</a>
         <button class="btn-eliminar" data-id="${p.run}">Eliminar</button>

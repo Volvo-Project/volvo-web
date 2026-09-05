@@ -1,6 +1,5 @@
 const params = new URLSearchParams(window.location.search);
 const idEditar = params.get("id");
-console.log("idEditar:", idEditar);
 
 if (idEditar) {
     const productoExistente = obtenerProductosAdmin().find(p => p.id === idEditar);

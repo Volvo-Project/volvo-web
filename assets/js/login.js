@@ -23,7 +23,7 @@ form.addEventListener("submit", (e) => {
         errorCorreo.textContent = "Debe terminar en @duoc.cl, @profesor.duoc.cl o @gmail.com";
         valido = false;
     } else if (correo.startsWith("@")) {
-        errorCorreo.textContent = "Inrese un correo válido"
+        errorCorreo.textContent = "Ingrese un correo válido"
         valido = false
     }
     else {
