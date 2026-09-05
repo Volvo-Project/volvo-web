@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volvo | Admin | Productos</title>
+    <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
+
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet" href="../assets/css/estilos.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <nav>
+                <ul>
+                    <li><a href="home.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="usuarios.html">Usuarios</a></li>
+                    <li><a href="../index.html">Volver a la tienda</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="admin-content">
+            <h1>Productos</h1>
+            <a href="producto-form.html">Nuevo producto</a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="productos-cuerpo">
+
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <script src="../assets/js/productos.js"></script>
+    <script src="../assets/js/admin-productos.js"></script>
+</body>
+
+</html>

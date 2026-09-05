@@ -110,4 +110,17 @@ color: #721c24;
   border-radius: 4px;
 
 }
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+.admin-sidebar {
+  width: 220px;
+  background-color: #00000a;
+  padding: 20px;
+}
+.admin-content {
+  flex: 1;
+  padding: 30px;
+}
 
