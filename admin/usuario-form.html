@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volvo | Admin | Nuevo usuario</title>
+    <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
+
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet" href="../assets/css/estilos.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <nav>
+                <ul>
+                    <li><a href="home.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="usuarios.html">Usuarios</a></li>
+                    <li><a href="../index.html">Volver a la tienda</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="admin-content">
+            <h1>Nuevo / Editar usuario</h1>
+            <form id="form-usuario" novalidate>
+                <div class="campo">
+                    <label for="usr-run">Run</label>
+                    <input type="text" id="usr-run" name="run">
+                    <span class="error"></span>
+                </div>
+                <div class="campo">
+                    <label for="usr-nombre">Nombre</label>
+                    <input type="text" id="usr-nombre" name="nombre">
+                    <span class="error"></span>
+                </div>
+                <div class="campo">
+                    <label for="usr-apellidos">Apellidos</label>
+                    <input type="text" id="usr-apellidos" name="apellidos">
+                    <span class="error"></span>
+                </div>
+                <div class="campo">
+                    <label for="usr-correo">Correo</label>
+                    <input type="text" id="usr-correo" name="correo">
+                    <span class="error"></span>
+                </div>
+                <div class="campo">
+                    <label for="usr-fecha-nacimiento">Fecha Nacimiento</label>
+                    <input type="date" id="usr-fecha-nacimiento" name="fecha nacimiento">
+
+                </div>
+                <div class="campo">
+                    <label for="usr-tipo">Tipo de usuario</label>
+                    <select id="usr-tipo" name="tipo">
+                        <option value="">Selecciona tipo</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Cliente">Cliente</option>
+                        <option value="Vendedor">Vendedor</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="usr-region">Región</label>
+                    <select id="usr-region" name="region">
+                        <option value="">Selecciona región</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="usr-comuna">Comuna</label>
+                    <select id="usr-comuna" name="comuna">
+                        <option value="">Selecciona comuna</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="usr-direccion">Dirección</label>
+                    <input type="text" id="usr-direccion" name="direccion">
+                    <span class="error"></span>
+                </div>
+                <button type="submit">Guardar</button>
+            </form>
+            <p id="aviso" hidden></p>
+
+        </main>
+    </div>
+    <script src="../assets/js/regiones.js"></script>
+    <script src="../assets/js/admin-usuarios.js"></script>
+    <script src="../assets/js/admin-usuario-form.js"></script>
+</body>
+
+</html>
