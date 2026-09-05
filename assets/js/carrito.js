@@ -146,12 +146,18 @@ if (botonFinalizar) {
         aviso.textContent = "No tiene productos para comprar"
         aviso.hidden = false
         return
-    } else {
-        guardarCarrito([]);
-        renderizarCarrito();
-        aviso.className = "aviso";
-        aviso.textContent = "Gracias por tu compra";
-        aviso.hidden = false
     }
+
+    if (!localStorage.getItem("usuarioSesion")) {
+        localStorage.setItem("volverDespuesDeLogin", "carrito.html");
+        window.location.href = "login.html";
+        return;
+    }
+
+    guardarCarrito([]);
+    renderizarCarrito();
+    aviso.className = "aviso";
+    aviso.textContent = "Gracias por tu compra";
+    aviso.hidden = false
 });
 }

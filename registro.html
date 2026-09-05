@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volvo | Registrarse</title>
+    <meta name="description" content="Crea tu cuenta en Volvo">
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+    </div>
+
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/volvo logo.png" alt="Logo volvo" style="width: 200px; margin: 10px; padding: 10px;">
+                        </a>
+                        <ul class="nav">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="producto.html">Productos</a></li>
+                            <li><a href="nosotros.html">Nosotros</a></li>
+                            <li><a href="blogs.html">Blog</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                            <li><a href="login.html">Iniciar sesión</a></li>
+                            <li><a href="registro.html">Registrarse</a></li>
+                            <li><a href="carrito.html" aria-label="Ver carrito de compras"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        </ul>
+                        <a class="menu-trigger"><span>Menu</span></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-heading header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Crear cuenta</h3>
+                    <span>Regístrate para comprar en Volvo</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container py-5 d-flex justify-content-center">
+        <form id="formRegistro" novalidate class="p-4 shadow rounded" style="max-width: 400px; width: 100%;">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" maxlength="60" placeholder="Ingrese su nombre" required>
+                <span class="error text-danger small" id="errorNombre"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="correoRegistro" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="correoRegistro" maxlength="100" placeholder="Ingrese su correo" required>
+                <span class="error text-danger small" id="errorCorreoRegistro"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="contrasenaRegistro" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="contrasenaRegistro" maxlength="10" placeholder="Entre 4 y 10 caracteres" required>
+                <span class="error text-danger small" id="errorContrasenaRegistro"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmarContrasena" class="form-label">Confirmar contraseña</label>
+                <input type="password" class="form-control" id="confirmarContrasena" maxlength="10" placeholder="Repita su contraseña" required>
+                <span class="error text-danger small" id="errorConfirmarContrasena"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+            <p id="avisoRegistro" class="aviso mt-3 text-center" hidden></p>
+        </form>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="col-lg-12">
+                <p><a rel="nofollow" href="https://github.com/Volvo-Project" target="_blank">&copy; Volvo. </a>Todos los derechos reservados.
+                    Desarrollado por: <a rel="nofollow" href="https://github.com/neurott" target="_blank">Nicolás Olivares,</a>
+                    <a rel="nofollow" href="https://github.com/Matyy98" target="_blank"> Matías Rodriguez</a> y
+                    <a rel="nofollow" href="https://github.com/EmilianoCerda" target="_blank">Emiliano Cerda</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/counter.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/sesion.js"></script>
+    <script src="assets/js/registro.js"></script>
+</body>
+
+</html>

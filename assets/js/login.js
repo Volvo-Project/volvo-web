@@ -8,7 +8,7 @@ form.addEventListener("submit", (e) => {
     let valido = true;
 
 
-    const correo = document.querySelector('#correo').value.trim();
+    const correo = document.querySelector('#correo').value.trim().toLowerCase();
     const errorCorreo = document.querySelector('#errorCorreo');
     const dominios = ["@duoc.cl", "@profesor.duoc.cl", "@gmail.com"];
     const dominioOk = dominios.some((d) => correo.endsWith(d));
@@ -43,11 +43,25 @@ form.addEventListener("submit", (e) => {
     }
 
 
-    if (valido) {
+    const usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
+    const usuario = usuarios.find((item) => item.correo === correo && item.contrasena === contrasena);
+
+    if (valido && usuario) {
+           localStorage.setItem("usuarioSesion", JSON.stringify({ nombre: usuario.nombre, correo }));
         aviso.textContent = "Aviso: Sesión iniciada correctamente";
         aviso.className = "aviso mt-3 text-center alert alert-success";
         aviso.hidden = false;
         form.reset();
+
+        const volverDespuesDeLogin = localStorage.getItem("volverDespuesDeLogin");
+        if (volverDespuesDeLogin) {
+            localStorage.removeItem("volverDespuesDeLogin");
+            window.location.href = volverDespuesDeLogin;
+        }
+    } else if (valido) {
+        aviso.textContent = "El correo o la contraseña no son correctos";
+        aviso.className = "aviso mt-3 text-center alert alert-danger";
+        aviso.hidden = false;
     } else {
         aviso.hidden = true;
     }
