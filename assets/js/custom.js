@@ -97,14 +97,14 @@
 
 const juegosBanner = [
     {
-        fondo: "assets/images/wj1cjy6hy0t51.jpg", 
-        tarjeta: "assets/images/assassinscreed2.jpg",
+        fondo: "assets/images/assassins-creed.jpg", 
+        tarjeta: "assets/images/wj1cjy6hy0t51.jpg",
         precio: "$29.990",
         oferta: "-50%",
         posicion: "center bottom"
     },
     {
-        fondo: "assets/images/thumb-1920-616976.png",
+        fondo: "assets/images/igra-art-sushchestvo-warframe-voin-oruzhie-fantastika-landsh.jpg",
         tarjeta: "assets/images/warframe-portada.jpg",
         precio: "GRATIS",
         oferta: "",
@@ -121,20 +121,28 @@ function cambiarBanner() {
     const txtPrecio = document.querySelector('.main-banner .right-image .precio');
     const txtOferta = document.querySelector('.main-banner .right-image .oferta');
 
-    indiceActual = (indiceActual + 1) % juegosBanner.length;
-
-banner.style.backgroundImage = `linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 70%), url(${juegosBanner[indiceActual].fondo})`;
-    banner.style.backgroundPosition = juegosBanner[indiceActual].posicion;
-    imgTarjeta.src = juegosBanner[indiceActual].tarjeta;
-    txtPrecio.textContent = juegosBanner[indiceActual].precio;
+    banner.style.transition = "opacity 0.4s ease-in-out";
+    banner.style.opacity = "0";
 
 
-    if (juegosBanner[indiceActual].oferta === "") {
-        txtOferta.style.display = "none";
-    } else {
-        txtOferta.style.display = "inline-block";
-        txtOferta.textContent = juegosBanner[indiceActual].oferta;
-    }
+    setTimeout(() => {
+        indiceActual = (indiceActual + 1) % juegosBanner.length;
+
+        banner.style.backgroundImage = `linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 70%), url(${juegosBanner[indiceActual].fondo})`;
+        banner.style.backgroundPosition = juegosBanner[indiceActual].posicion;
+        imgTarjeta.src = juegosBanner[indiceActual].tarjeta;
+        txtPrecio.textContent = juegosBanner[indiceActual].precio;
+
+        if (juegosBanner[indiceActual].oferta === "") {
+            txtOferta.style.display = "none";
+        } else {
+            txtOferta.style.display = "inline-block";
+            txtOferta.textContent = juegosBanner[indiceActual].oferta;
+        }
+
+
+        banner.style.opacity = "1";
+    }, 400);
 }
 
 setInterval(cambiarBanner, 10000);
