@@ -43,11 +43,21 @@ form.addEventListener("submit", (e) => {
     }
 
 
+    // usuarios registrados (los crea el formulario de registro) + cuentas admin fijas
     const usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
     const usuario = usuarios.find((item) => item.correo === correo && item.contrasena === contrasena);
+    const admin = administradores.find((item) => item.correo === correo && item.contrasena === contrasena);
+    const cuenta = admin || usuario;
 
-    if (valido && usuario) {
-           localStorage.setItem("usuarioSesion", JSON.stringify({ nombre: usuario.nombre, correo }));
+    if (valido && cuenta) {
+        const rol = cuenta.rol || "Cliente";
+        localStorage.setItem("usuarioSesion", JSON.stringify({ nombre: cuenta.nombre, correo, rol }));
+
+        if (rol === "Administrador") {
+            window.location.href = "admin/home.html";
+            return;
+        }
+
         aviso.textContent = "Aviso: Sesión iniciada correctamente";
         aviso.className = "aviso mt-3 text-center alert alert-success";
         aviso.hidden = false;

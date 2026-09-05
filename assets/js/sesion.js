@@ -15,12 +15,28 @@ function actualizarNavegacionSesion() {
     const sesion = obtenerSesion();
     const enlacesSesion = document.querySelectorAll('a[href="login.html"]');
 
+    if (!sesion) {
+        return;
+    }
+
+    // Con sesión iniciada, "Registrarse" ya no tiene sentido: se oculta
+    document.querySelectorAll('a[href="registro.html"]').forEach((enlace) => {
+        const item = enlace.closest('li');
+        if (item) {
+            item.hidden = true;
+        }
+    });
+
     enlacesSesion.forEach((enlace) => {
-        if (!sesion) {
-            return;
+        const contenedor = enlace.closest('li');
+
+        // Si la sesión es de administrador, agrega el enlace al panel antes de la cuenta
+        if (sesion.rol === 'Administrador') {
+            const itemAdmin = document.createElement('li');
+            itemAdmin.innerHTML = '<a href="admin/home.html">Panel</a>';
+            contenedor.parentNode.insertBefore(itemAdmin, contenedor);
         }
 
-        const contenedor = enlace.closest('li');
         const nombre = sesion.nombre || sesion.correo;
         enlace.textContent = nombre;
         enlace.href = '#';
