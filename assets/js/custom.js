@@ -109,14 +109,8 @@ const juegosBanner = [
         precio: "GRATIS",
         oferta: "",
         posicion: "center top"
-    },
-    {
-        fondo: "assets/images/fondo-3.jpg",
-        tarjeta: "assets/images/tarjeta-3.jpg",
-        precio: "$45.000",
-        oferta: "-10%",
-        posicion: "center center"
     }
+
 ];
 
 let indiceActual = 0;
@@ -143,4 +137,4 @@ banner.style.backgroundImage = `linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%,
     }
 }
 
-setInterval(cambiarBanner, 5000);
+setInterval(cambiarBanner, 10000);
