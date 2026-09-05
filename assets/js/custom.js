@@ -97,8 +97,8 @@
 
 const juegosBanner = [
     {
-        fondo: "assets/images/assassins-creed.jpg", 
-        tarjeta: "assets/images/wj1cjy6hy0t51.jpg",
+        fondo: "assets/images/wj1cjy6hy0t51.jpg", 
+        tarjeta: "assets/images/assassinscreed2.jpg",
         precio: "$29.990",
         oferta: "-50%",
         posicion: "center bottom"
