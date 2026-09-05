@@ -37,7 +37,16 @@ if (formQty) {
             !Number.isInteger(cantidad)) {
             return;
         }
-        const producto = { id: "WFRM-01", nombre: "Warframe", precio: 0, cantidad: cantidad }
+        // window.productoActual lo define detalle.js según el juego que se está viendo
+        if (!window.productoActual) {
+            return;
+        }
+        const producto = {
+            id: window.productoActual.id,
+            nombre: window.productoActual.nombre,
+            precio: window.productoActual.precio,
+            cantidad: cantidad
+        };
         agregarAlCarrito(producto);
         aviso.textContent = "Producto agregado al carrito";
         aviso.hidden = false;
