@@ -207,8 +207,8 @@ const productos = [
     filtro: "str",
     precio: 0,
     esGratis: true,
-    imagen: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/291550/header.jpg",
-    imagenDetalle: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/291550/header.jpg",
+    imagen: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/291550/library_600x900_2x.jpg",
+    imagenDetalle: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/291550/library_600x900_2x.jpg",
     genero: "Lucha, Acción, Multijugador",
     etiquetas: "Combate, Plataformas, Competitivo",
     trailer: "https://www.youtube.com/embed/8n6Q7w2YwXk",
@@ -218,6 +218,7 @@ const productos = [
 
 function renderizarCatalogo() {
   const catalogo = document.querySelector('#catalogo-productos');
+  const paginacion = document.querySelector('#paginacion-productos');
 
   if (!catalogo) {
     return;
@@ -225,6 +226,8 @@ function renderizarCatalogo() {
 
   const parametros = new URLSearchParams(window.location.search);
   const busqueda = (parametros.get('buscar') || '').trim();
+  const paginaSolicitada = Number.parseInt(parametros.get('pagina') || '1', 10);
+  const productosPorPagina = 8;
   const infoBusqueda = document.querySelector('#busqueda-info');
   const escaparHtml = (texto) => texto.replace(/[&<>"']/g, (c) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -250,12 +253,20 @@ function renderizarCatalogo() {
     infoBusqueda.innerHTML = '';
   }
 
+  const totalPaginas = Math.max(1, Math.ceil(productosAMostrar.length / productosPorPagina));
+  const paginaActual = Math.min(Math.max(Number.isNaN(paginaSolicitada) ? 1 : paginaSolicitada, 1), totalPaginas);
+  const inicio = (paginaActual - 1) * productosPorPagina;
+  const productosDePagina = productosAMostrar.slice(inicio, inicio + productosPorPagina);
+
   if (productosAMostrar.length === 0) {
     catalogo.innerHTML = '';
+    if (paginacion) {
+      paginacion.innerHTML = '';
+    }
     return;
   }
 
-  catalogo.innerHTML = productosAMostrar.map((producto) => {
+  catalogo.innerHTML = productosDePagina.map((producto) => {
     const precio = producto.esGratis
       ? '<span class="precio">Gratis</span>'
       : `<span class="precio">$${producto.precio.toLocaleString('es-CL')}</span>`;
@@ -278,6 +289,39 @@ function renderizarCatalogo() {
       </div>
     `;
   }).join('');
+
+  if (!paginacion) {
+    return;
+  }
+
+  const parametrosPaginacion = busqueda ? `&buscar=${encodeURIComponent(busqueda)}` : '';
+  const crearEnlacePagina = (pagina, etiqueta, esActiva = false, deshabilitado = false) => `
+    <li class="${deshabilitado ? 'disabled' : ''}">
+      <a class="${esActiva ? 'is_active' : ''}" href="producto.html?pagina=${pagina}${parametrosPaginacion}" data-pagina="${pagina}"${esActiva ? ' aria-current="page"' : ''}${deshabilitado ? ' aria-disabled="true"' : ''}>${etiqueta}</a>
+    </li>
+  `;
+
+  paginacion.innerHTML = [
+    crearEnlacePagina(Math.max(1, paginaActual - 1), '&lt;', false, paginaActual === 1),
+    ...Array.from({ length: totalPaginas }, (_, indice) => {
+      const pagina = indice + 1;
+      return crearEnlacePagina(pagina, pagina, pagina === paginaActual);
+    }),
+    crearEnlacePagina(Math.min(totalPaginas, paginaActual + 1), '&gt;', false, paginaActual === totalPaginas)
+  ].join('');
+
+  paginacion.querySelectorAll('a[data-pagina]').forEach((enlace) => {
+    enlace.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (!enlace.parentElement.classList.contains('disabled')) {
+        const nuevaUrl = new URL(enlace.href, window.location.href);
+        window.history.pushState({}, '', nuevaUrl);
+        renderizarCatalogo();
+        window.scrollTo({ top: document.querySelector('.trending').offsetTop - 80, behavior: 'smooth' });
+      }
+    });
+  });
 }
 
 renderizarCatalogo();
+window.addEventListener('popstate', renderizarCatalogo);
