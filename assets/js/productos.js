@@ -151,3 +151,37 @@ const productos = [
     descripcion: "Conviértete en Guardián y defiende lo que queda de la humanidad en un universo de ciencia ficción."
   }
 ];
+
+function renderizarCatalogo() {
+  const catalogo = document.querySelector('#catalogo-productos');
+
+  if (!catalogo) {
+    return;
+  }
+
+  catalogo.innerHTML = productos.map((producto) => {
+    const precio = producto.esGratis
+      ? '<span class="price">Gratis</span>'
+      : `<span class="price">$${producto.precio.toLocaleString('es-CL')}</span>`;
+
+    return `
+      <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items ${producto.filtro}">
+        <div class="item">
+          <div class="thumb">
+            <a href="detalle-producto.html?id=${producto.id}">
+              <img src="${producto.imagen}" alt="Portada de ${producto.nombre}">
+            </a>
+            ${precio}
+          </div>
+          <div class="down-content">
+            <span class="category">${producto.categoria}</span>
+            <h4>${producto.nombre}</h4>
+            <a href="detalle-producto.html?id=${producto.id}"><i class="fa fa-shopping-bag"></i></a>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+renderizarCatalogo();
