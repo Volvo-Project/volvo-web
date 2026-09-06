@@ -368,3 +368,46 @@ body {
 .menu-cuenta button:hover {
     background: #f2f2f2;
 }
+
+/* ============================================================
+   RESPONSIVE — Panel de administración
+   En pantallas de hasta 768px (tablet y celular) la barra lateral
+   deja de ir al costado y pasa arriba, en horizontal.
+   Va al final del archivo para que estas reglas ganen sobre las
+   de arriba cuando se cumple la condición.
+   ============================================================ */
+@media (max-width: 768px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    width: 100%;
+    padding: 12px 15px;
+  }
+  /* Los enlaces del menú pasan de lista vertical a fila horizontal */
+  .admin-sidebar nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .admin-sidebar nav li {
+    margin-bottom: 0;
+  }
+  .admin-sidebar nav a {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  .admin-content {
+    padding: 20px 15px;
+  }
+  /* Las tablas tienen 6 columnas y no caben: se deslizan de lado */
+  .admin-content table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  /* Las tarjetas del resumen se apilan una debajo de otra */
+  .admin-card {
+    min-width: 100%;
+  }
+}
