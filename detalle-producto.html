@@ -87,8 +87,9 @@
           <h4 id="prod-nombre">Warframe</h4>
           <span class="price" id="prod-precio">Gratis</span>
           <p id="prod-descripcion">Sumérgete en el universo de Warframe: acción cooperativa, personalización total de tu personaje y combates espectaculares. Compra hoy en Volvo y aprovecha nuestro precio de lanzamiento.</p>
-          <form id="qty" action="#">
-            <input type="number" class="form-control" id="cantidad" aria-describedby="quantity" value="1" min="1" step="1" placeholder="1">
+          <form id="qty" action="#" novalidate>
+            <label for="cantidad" class="visually-hidden">Cantidad a comprar</label>
+            <input type="number" class="form-control" id="cantidad" name="cantidad" value="1" min="1" step="1" placeholder="1">
             <button type="submit"><i class="fa fa-shopping-bag"></i> AGREGAR AL CARRITO</button>
           </form><p id="aviso" class="aviso" hidden></p>
           <ul>

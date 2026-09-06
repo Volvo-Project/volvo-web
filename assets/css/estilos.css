@@ -173,6 +173,158 @@ color: #721c24;
   margin: 0;
 }
 
+/* ---- Barra lateral del panel ---- */
+.admin-sidebar nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.admin-sidebar nav li {
+  margin-bottom: 4px;
+}
+.admin-sidebar nav a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: #cfd3dc;
+  font-size: 15px;
+  transition: background-color .2s, color .2s;
+}
+.admin-sidebar nav a:hover {
+  background-color: rgba(255, 255, 255, .08);
+  color: #fff;
+}
+
+/* ---- Contenido del panel ---- */
+.admin-content h1 {
+  margin-bottom: 10px;
+}
+.admin-content > a {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 8px 16px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.admin-content > a:hover {
+  background-color: var(--color-accent);
+}
+
+/* ---- Tablas ---- */
+.admin-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+}
+.admin-content th,
+.admin-content td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 14px;
+}
+.admin-content thead th {
+  background-color: #00000a;
+  color: #fff;
+  font-weight: 600;
+}
+.admin-content tbody tr:hover {
+  background-color: #f5f6f8;
+}
+.admin-content td a {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-right: 10px;
+}
+.admin-content .btn-eliminar {
+  background: none;
+  border: 1px solid #c0392b;
+  color: #c0392b;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.admin-content .btn-eliminar:hover {
+  background-color: #c0392b;
+  color: #fff;
+}
+
+/* ---- Formularios del panel ---- */
+.admin-content form {
+  max-width: 500px;
+}
+.admin-content .campo label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.admin-content .campo input,
+.admin-content .campo select,
+.admin-content .campo textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.admin-content form button[type="submit"] {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.admin-content form button[type="submit"]:hover {
+  background-color: var(--color-accent);
+}
+.admin-content #aviso {
+  margin-top: 14px;
+  padding: 10px;
+  background-color: #d4edda;
+  color: #155724;
+  border-radius: 6px;
+  max-width: 500px;
+}
+
+/* ---- Tarjetas de resumen del home ---- */
+.admin-resumen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 25px;
+}
+.admin-card {
+  flex: 1;
+  min-width: 180px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+}
+.admin-card h2 {
+  font-size: 40px;
+  margin: 0 0 6px;
+  color: var(--color-primary);
+}
+.admin-card p {
+  margin: 0 0 12px;
+  color: #555;
+}
+.admin-card a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
 body {
     animation: fadeIn 0.5s ease-in-out;
 }

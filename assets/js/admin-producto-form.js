@@ -23,34 +23,61 @@ if (formProducto) {
 
         const codigo = document.querySelector('#prod-codigo').value.trim();
         const errorCodigo = document.querySelector('#prod-codigo').nextElementSibling;
-        const nombre = document.querySelector('#prod-nombre').value.trim();
-        const errorNombre = document.querySelector('#prod-nombre').nextElementSibling;
-        const precio = Number(document.querySelector('#prod-precio').value.trim());
-        const errorPrecio = document.querySelector('#prod-precio').nextElementSibling;
-        const stock = Number(document.querySelector('#prod-stock').value.trim());
-        const errorStock = document.querySelector('#prod-stock').nextElementSibling;
         if (codigo.length < 3) {
             errorCodigo.textContent = "El código debe tener al menos 3 caracteres";
             esValido = false;
         } else {
             errorCodigo.textContent = "";
-        } if (nombre === "" || nombre.length > 100) {
+        }
+
+        const nombre = document.querySelector('#prod-nombre').value.trim();
+        const errorNombre = document.querySelector('#prod-nombre').nextElementSibling;
+        if (nombre === "" || nombre.length > 100) {
             errorNombre.textContent = "El nombre no puede estar vacio ni superar los 100 caracteres";
             esValido = false;
         } else {
             errorNombre.textContent = "";
-        } if (isNaN(precio) || precio < 0) {
-            errorPrecio.textContent = "Debe insertar un precio";
+        }
+
+        const descripcion = document.querySelector('#prod-descripcion').value.trim();
+        const errorDescripcion = document.querySelector('#prod-descripcion').nextElementSibling;
+        if (descripcion === "" || descripcion.length > 500) {
+            errorDescripcion.textContent = "La descripción es obligatoria y no puede superar los 500 caracteres";
+            esValido = false;
+        } else {
+            errorDescripcion.textContent = "";
+        }
+
+        const precioTexto = document.querySelector('#prod-precio').value.trim();
+        const precio = Number(precioTexto);
+        const errorPrecio = document.querySelector('#prod-precio').nextElementSibling;
+        if (precioTexto === "" || isNaN(precio) || precio < 0) {
+            errorPrecio.textContent = "El precio debe ser un número mayor o igual a 0";
             esValido = false;
         } else {
             errorPrecio.textContent = "";
-        } if (isNaN(stock) || stock < 0 ||
-            !Number.isInteger(stock)) {
-            errorStock.textContent = "Debe insertar un stock valido";
+        }
+
+        const stockTexto = document.querySelector('#prod-stock').value.trim();
+        const stock = Number(stockTexto);
+        const errorStock = document.querySelector('#prod-stock').nextElementSibling;
+        if (stockTexto === "" || isNaN(stock) || stock < 0 || !Number.isInteger(stock)) {
+            errorStock.textContent = "El stock debe ser un número entero mayor o igual a 0";
             esValido = false;
         } else {
             errorStock.textContent = "";
         }
+
+        const stockCriticoTexto = document.querySelector('#prod-stock-critico').value.trim();
+        const stockCriticoNum = Number(stockCriticoTexto);
+        const errorStockCritico = document.querySelector('#prod-stock-critico').nextElementSibling;
+        if (stockCriticoTexto !== "" && (isNaN(stockCriticoNum) || stockCriticoNum < 0 || !Number.isInteger(stockCriticoNum))) {
+            errorStockCritico.textContent = "El stock crítico debe ser un número entero mayor o igual a 0";
+            esValido = false;
+        } else {
+            errorStockCritico.textContent = "";
+        }
+
         const categoria = document.querySelector('#prod-categoria').value;
         const errorCategoria = document.querySelector('#prod-categoria').nextElementSibling;
         if (categoria === "") {
@@ -62,9 +89,7 @@ if (formProducto) {
 
 
         if (!esValido) return;
-        const stockCritico = document.querySelector('#prod-stock-critico').value.trim();
         const imagen = document.querySelector('#prod-imagen').value.trim();
-        const descripcion = document.querySelector('#prod-descripcion').value.trim();
 
         const lista = obtenerProductosAdmin();
 
@@ -75,7 +100,7 @@ if (formProducto) {
             producto.descripcion = descripcion;
             producto.precio = precio;
             producto.stock = stock;
-            producto.stockCritico = stockCritico === "" ? null : Number(stockCritico);
+            producto.stockCritico = stockCriticoTexto === "" ? null : stockCriticoNum;
             producto.categoria = categoria;
             producto.imagen = imagen;
         } else {
@@ -86,7 +111,7 @@ if (formProducto) {
                 descripcion: descripcion,
                 precio: precio,
                 stock: stock,
-                stockCritico: stockCritico === "" ? null : Number(stockCritico),
+                stockCritico: stockCriticoTexto === "" ? null : stockCriticoNum,
                 categoria: categoria,
                 imagen: imagen,
                 esGratis: precio === 0

@@ -36,22 +36,22 @@
             <form id="form-usuario" novalidate>
                 <div class="campo">
                     <label for="usr-run">Run</label>
-                    <input type="text" id="usr-run" name="run">
+                    <input type="text" id="usr-run" name="run" maxlength="9" placeholder="19011022K (sin puntos ni guión)">
                     <span class="error"></span>
                 </div>
                 <div class="campo">
                     <label for="usr-nombre">Nombre</label>
-                    <input type="text" id="usr-nombre" name="nombre">
+                    <input type="text" id="usr-nombre" name="nombre" maxlength="50" placeholder="Juan">
                     <span class="error"></span>
                 </div>
                 <div class="campo">
                     <label for="usr-apellidos">Apellidos</label>
-                    <input type="text" id="usr-apellidos" name="apellidos">
+                    <input type="text" id="usr-apellidos" name="apellidos" maxlength="100" placeholder="Pérez González">
                     <span class="error"></span>
                 </div>
                 <div class="campo">
                     <label for="usr-correo">Correo</label>
-                    <input type="text" id="usr-correo" name="correo">
+                    <input type="text" id="usr-correo" name="correo" maxlength="100" placeholder="ejemplo@duoc.cl">
                     <span class="error"></span>
                 </div>
                 <div class="campo">
@@ -85,7 +85,7 @@
                 </div>
                 <div class="campo">
                     <label for="usr-direccion">Dirección</label>
-                    <input type="text" id="usr-direccion" name="direccion">
+                    <input type="text" id="usr-direccion" name="direccion" maxlength="300" placeholder="Av. Providencia 1234, depto 5B">
                     <span class="error"></span>
                 </div>
                 <button type="submit">Guardar</button>
