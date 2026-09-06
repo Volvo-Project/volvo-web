@@ -141,9 +141,15 @@ color: #721c24;
   border-radius: 4px;
 
 }
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
 .admin-layout {
   display: flex;
-  min-height: 100vh;
+  flex: 1;
 }
 .admin-sidebar {
   width: 220px;
@@ -153,6 +159,18 @@ color: #721c24;
 .admin-content {
   flex: 1;
   padding: 30px;
+}
+.admin-footer {
+  background: #00000a;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 0;
+  border-radius: 0;
+}
+.admin-footer p {
+  color: #fff;
+  margin: 0;
 }
 
 body {

@@ -18,7 +18,7 @@
     <script src="../assets/js/guardia-admin.js"></script>
 </head>
 
-<body>
+<body class="admin-page">
     <div class="admin-layout">
         <aside class="admin-sidebar">
             <nav>
@@ -27,6 +27,7 @@
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="usuarios.html">Usuarios</a></li>
                     <li><a href="../index.html">Volver a la tienda</a></li>
+                    <li><a href="#" id="cerrar-sesion">Cerrar sesión</a></li>
                 </ul>
             </nav>
         </aside>
@@ -66,18 +67,21 @@
                         <option value="Cliente">Cliente</option>
                         <option value="Vendedor">Vendedor</option>
                     </select>
+                    <span class="error"></span>
                 </div>
                 <div class="campo">
                     <label for="usr-region">Región</label>
                     <select id="usr-region" name="region">
                         <option value="">Selecciona región</option>
                     </select>
+                    <span class="error"></span>
                 </div>
                 <div class="campo">
                     <label for="usr-comuna">Comuna</label>
                     <select id="usr-comuna" name="comuna">
                         <option value="">Selecciona comuna</option>
                     </select>
+                    <span class="error"></span>
                 </div>
                 <div class="campo">
                     <label for="usr-direccion">Dirección</label>
@@ -90,6 +94,9 @@
 
         </main>
     </div>
+    <footer class="admin-footer">
+        <p>Volvo · Panel de administración · 2026</p>
+    </footer>
     <script src="../assets/js/regiones.js"></script>
     <script src="../assets/js/admin-usuarios.js"></script>
     <script src="../assets/js/admin-usuario-form.js"></script>

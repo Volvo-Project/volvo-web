@@ -52,8 +52,12 @@ if (formProducto) {
             errorStock.textContent = "";
         }
         const categoria = document.querySelector('#prod-categoria').value;
+        const errorCategoria = document.querySelector('#prod-categoria').nextElementSibling;
         if (categoria === "") {
+            errorCategoria.textContent = "Selecciona una categoría";
             esValido = false;
+        } else {
+            errorCategoria.textContent = "";
         }
 
 

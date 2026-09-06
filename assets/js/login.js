@@ -7,14 +7,9 @@ if (new URLSearchParams(window.location.search).get('motivo') === 'admin-requeri
     avisoInicial.hidden = false;
 }
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const aviso = document.querySelector('#aviso');
-    aviso.hidden = true;
+// ============ FUNCIONES DE VALIDACIÓN (una por campo) ============
 
-    let valido = true;
-
-
+function validarCorreo() {
     const correo = document.querySelector('#correo').value.trim().toLowerCase();
     const errorCorreo = document.querySelector('#errorCorreo');
     const dominios = ["@duoc.cl", "@profesor.duoc.cl", "@gmail.com"];
@@ -22,33 +17,58 @@ form.addEventListener("submit", (e) => {
 
     if (correo === "") {
         errorCorreo.textContent = "El correo es obligatorio";
-        valido = false;
+        return false;
     } else if (correo.length > 100) {
         errorCorreo.textContent = "Maximo 100 caracteres";
-        valido = false;
-    }else if (!dominioOk) {
+        return false;
+    } else if (!dominioOk) {
         errorCorreo.textContent = "Debe terminar en @duoc.cl, @profesor.duoc.cl o @gmail.com";
-        valido = false;
+        return false;
     } else if (correo.startsWith("@")) {
-        errorCorreo.textContent = "Ingrese un correo válido"
-        valido = false
+        errorCorreo.textContent = "Ingrese un correo válido";
+        return false;
     }
-    else {
-        errorCorreo.textContent = "";
-    }
+    errorCorreo.textContent = "";
+    return true;
+}
+
+function validarContrasena() {
     const contrasena = document.querySelector('#contrasena').value.trim();
     const errorContrasena = document.querySelector('#errorContrasena');
 
     if (contrasena === "") {
         errorContrasena.textContent = "La contraseña es obligatoria";
-        valido = false;
+        return false;
     } else if (contrasena.length < 4 || contrasena.length > 10) {
         errorContrasena.textContent = "Debe tener entre 4 y 10 caracteres";
-        valido = false;
-    } else {
-        errorContrasena.textContent = "";
+        return false;
+    }
+    errorContrasena.textContent = "";
+    return true;
+}
+
+// ============ TIEMPO REAL: validar al salir de cada campo ============
+
+document.querySelector('#correo').addEventListener('blur', validarCorreo);
+document.querySelector('#contrasena').addEventListener('blur', validarContrasena);
+
+// ============ SUBMIT: valida todo y comprueba la cuenta ============
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const aviso = document.querySelector('#aviso');
+    aviso.hidden = true;
+
+    let valido = true;
+    if (!validarCorreo()) valido = false;
+    if (!validarContrasena()) valido = false;
+
+    if (!valido) {
+        return;
     }
 
+    const correo = document.querySelector('#correo').value.trim().toLowerCase();
+    const contrasena = document.querySelector('#contrasena').value.trim();
 
     // usuarios registrados (los crea el formulario de registro) + cuentas admin fijas
     const usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
@@ -56,7 +76,7 @@ form.addEventListener("submit", (e) => {
     const admin = administradores.find((item) => item.correo === correo && item.contrasena === contrasena);
     const cuenta = admin || usuario;
 
-    if (valido && cuenta) {
+    if (cuenta) {
         const rol = cuenta.rol || "Cliente";
         localStorage.setItem("usuarioSesion", JSON.stringify({ nombre: cuenta.nombre, correo, rol }));
 
@@ -76,13 +96,9 @@ form.addEventListener("submit", (e) => {
                 window.location.href = destino;
             }, 800);
         }
-    } else if (valido) {
+    } else {
         aviso.textContent = "El correo o la contraseña no son correctos";
         aviso.className = "aviso mt-3 text-center alert alert-danger";
         aviso.hidden = false;
-    } else {
-        aviso.hidden = true;
     }
-
-
 });

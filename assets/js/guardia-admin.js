@@ -12,3 +12,15 @@
         window.location.href = '../login.html?motivo=admin-requerido';
     }
 })();
+
+// Cerrar sesión desde el panel: borra la sesión y vuelve al login
+document.addEventListener('DOMContentLoaded', () => {
+    const boton = document.querySelector('#cerrar-sesion');
+    if (boton) {
+        boton.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('usuarioSesion');
+            window.location.href = '../login.html';
+        });
+    }
+});

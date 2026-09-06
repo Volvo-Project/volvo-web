@@ -99,18 +99,30 @@ if (formUsuario) {
     const fechaNacimiento = document.querySelector('#usr-fecha-nacimiento').value;
 
     const tipo = document.querySelector('#usr-tipo').value;
+    const errorTipo = document.querySelector('#usr-tipo').nextElementSibling;
     if (tipo === "") {
+      errorTipo.textContent = "Selecciona un tipo de usuario";
       esValido = false;
+    } else {
+      errorTipo.textContent = "";
     }
 
     const region = document.querySelector('#usr-region').value;
+    const errorRegion = document.querySelector('#usr-region').nextElementSibling;
     if (region === "") {
+      errorRegion.textContent = "Seleccione region";
       esValido = false;
+    } else {
+      errorRegion.textContent = "";
     }
 
     const comuna = document.querySelector('#usr-comuna').value;
+    const errorComuna = document.querySelector('#usr-comuna').nextElementSibling;
     if (comuna === "") {
+      errorComuna.textContent = "Seleccione comuna";
       esValido = false;
+    } else {
+      errorComuna.textContent = "";
     }
 
     const direccion = document.querySelector('#usr-direccion').value.trim();

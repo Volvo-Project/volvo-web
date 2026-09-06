@@ -18,7 +18,7 @@
     <script src="../assets/js/guardia-admin.js"></script>
 </head>
 
-<body>
+<body class="admin-page">
     <div class="admin-layout">
         <aside class="admin-sidebar">
             <nav>
@@ -27,6 +27,7 @@
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="usuarios.html">Usuarios</a></li>
                     <li><a href="../index.html">Volver a la tienda</a></li>
+                    <li><a href="#" id="cerrar-sesion">Cerrar sesión</a></li>
                 </ul>
             </nav>
         </aside>
@@ -66,10 +67,12 @@
                     <div class="campo">
                         <label for="prod-categoria">Categoría</label>
                         <select id="prod-categoria" name="categoria">
+                            <option value="">Selecciona categoría</option>
                             <option value="Aventura">Aventura</option>
                             <option value="Estrategia">Estrategia</option>
                             <option value="Carreras">Carreras</option>
                         </select>
+                        <span class="error"></span>
                     </div>
                     <div class="campo">
                         <label for="prod-imagen">Imagen (URL)</label>
@@ -81,6 +84,9 @@
 
         </main>
     </div>
+    <footer class="admin-footer">
+        <p>Volvo · Panel de administración · 2026</p>
+    </footer>
     <script src="../assets/js/productos.js"></script>
     <script src="../assets/js/admin-productos.js"></script>
     <script src="../assets/js/admin-producto-form.js"></script>
