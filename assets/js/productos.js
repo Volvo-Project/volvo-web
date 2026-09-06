@@ -158,7 +158,7 @@ const productos = [
     id: "rocket-league",
     idJuego: "RL-11",
     nombre: "Rocket League",
-    categoria: "Deportes",
+    categoria: "Carreras",
     filtro: "rac",
     precio: 0,
     esGratis: true,
@@ -188,7 +188,7 @@ const productos = [
     id: "dead-by-daylight",
     idJuego: "DBD-13",
     nombre: "Dead by Daylight",
-    categoria: "Terror",
+    categoria: "Aventura",
     filtro: "adv",
     precio: 18990,
     esGratis: false,
@@ -203,7 +203,7 @@ const productos = [
     id: "brawlhalla",
     idJuego: "BRWL-14",
     nombre: "Brawlhalla",
-    categoria: "Acción",
+    categoria: "Estrategia",
     filtro: "str",
     precio: 0,
     esGratis: true,
@@ -226,6 +226,7 @@ function renderizarCatalogo() {
 
   const parametros = new URLSearchParams(window.location.search);
   const busqueda = (parametros.get('buscar') || '').trim();
+  const filtroSolicitado = parametros.get('filtro') || '*';
   const paginaSolicitada = Number.parseInt(parametros.get('pagina') || '1', 10);
   const productosPorPagina = 8;
   const infoBusqueda = document.querySelector('#busqueda-info');
@@ -251,6 +252,10 @@ function renderizarCatalogo() {
     }
   } else if (infoBusqueda) {
     infoBusqueda.innerHTML = '';
+  }
+
+  if (filtroSolicitado !== '*') {
+    productosAMostrar = productosAMostrar.filter((producto) => producto.filtro === filtroSolicitado);
   }
 
   const totalPaginas = Math.max(1, Math.ceil(productosAMostrar.length / productosPorPagina));
@@ -294,10 +299,14 @@ function renderizarCatalogo() {
     return;
   }
 
-  const parametrosPaginacion = busqueda ? `&buscar=${encodeURIComponent(busqueda)}` : '';
+  const parametrosPaginacion = [
+    filtroSolicitado !== '*' ? `filtro=${encodeURIComponent(filtroSolicitado)}` : '',
+    busqueda ? `buscar=${encodeURIComponent(busqueda)}` : ''
+  ].filter(Boolean).join('&');
+  const separadorParametros = parametrosPaginacion ? '&' : '';
   const crearEnlacePagina = (pagina, etiqueta, esActiva = false, deshabilitado = false) => `
     <li class="${deshabilitado ? 'disabled' : ''}">
-      <a class="${esActiva ? 'is_active' : ''}" href="producto.html?pagina=${pagina}${parametrosPaginacion}" data-pagina="${pagina}"${esActiva ? ' aria-current="page"' : ''}${deshabilitado ? ' aria-disabled="true"' : ''}>${etiqueta}</a>
+      <a class="${esActiva ? 'is_active' : ''}" href="producto.html?pagina=${pagina}${separadorParametros}${parametrosPaginacion}" data-pagina="${pagina}"${esActiva ? ' aria-current="page"' : ''}${deshabilitado ? ' aria-disabled="true"' : ''}>${etiqueta}</a>
     </li>
   `;
 
@@ -321,6 +330,26 @@ function renderizarCatalogo() {
       }
     });
   });
+
+  const filtros = document.querySelector('.trending-filter');
+  if (filtros) {
+    filtros.querySelectorAll('a[data-filter]').forEach((enlace) => {
+      const filtro = enlace.dataset.filter;
+      enlace.classList.toggle('is_active', filtro === filtroSolicitado);
+      enlace.addEventListener('click', (event) => {
+        event.preventDefault();
+        const nuevaUrl = new URL(window.location.href);
+        nuevaUrl.searchParams.delete('pagina');
+        nuevaUrl.searchParams.delete('filtro');
+        if (filtro !== '*') {
+          nuevaUrl.searchParams.set('filtro', filtro);
+        }
+        window.history.pushState({}, '', nuevaUrl);
+        renderizarCatalogo();
+        window.scrollTo({ top: document.querySelector('.trending').offsetTop - 80, behavior: 'smooth' });
+      });
+    });
+  }
 }
 
 renderizarCatalogo();

@@ -30,7 +30,7 @@
 
     const elem = document.querySelector('.trending-box');
     const filtersElem = document.querySelector('.trending-filter');
-    if (elem) {
+    if (elem && !document.querySelector('#paginacion-productos')) {
         const rdn_events_list = new Isotope(elem, {
             itemSelector: '.trending-items',
             layoutMode: 'masonry'
