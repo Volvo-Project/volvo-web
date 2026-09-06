@@ -263,7 +263,7 @@ body {
 }
 
 .header-area {
-  position: absolute;
+  position: fixed;
   background-color: transparent;
   top: 40px;
   left: 0;
