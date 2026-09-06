@@ -153,11 +153,72 @@ const productos = [
     etiquetas: "Guardianes, Raids, Cooperativo",
     trailer: "https://www.youtube.com/embed/hdWkpbPTpmE",
     descripcion: "Conviértete en Guardián y defiende lo que queda de la humanidad en un universo de ciencia ficción."
+  },
+  {
+    id: "rocket-league",
+    idJuego: "RL-11",
+    nombre: "Rocket League",
+    categoria: "Deportes",
+    filtro: "rac",
+    precio: 0,
+    esGratis: true,
+    imagen: "assets/images/rocket-league.jpg",
+    imagenDetalle: "assets/images/rocket-league.jpg",
+    genero: "Deportes, Acción, Multijugador",
+    etiquetas: "Fútbol, Vehículos, Competitivo",
+    trailer: "https://www.youtube.com/embed/SgSX3gOrj60",
+    descripcion: "Compite en partidos de fútbol con vehículos y demuestra tus habilidades en intensas partidas multijugador."
+  },
+  {
+    id: "age-of-empires-iv",
+    idJuego: "AOE4-12",
+    nombre: "Age of Empires IV",
+    categoria: "Estrategia",
+    filtro: "str",
+    precio: 24990,
+    esGratis: false,
+    imagen: "assets/images/age-of-empires-4.jpg",
+    imagenDetalle: "assets/images/age-of-empires-4.jpg",
+    genero: "Estrategia, Tiempo Real, Un Jugador",
+    etiquetas: "Civilizaciones, Historia, Construcción",
+    trailer: "https://www.youtube.com/embed/ttLZoKjH9kI",
+    descripcion: "Construye tu civilización, domina la economía y lidera tus ejércitos a través de grandes momentos de la historia."
+  },
+  {
+    id: "dead-by-daylight",
+    idJuego: "DBD-13",
+    nombre: "Dead by Daylight",
+    categoria: "Terror",
+    filtro: "adv",
+    precio: 18990,
+    esGratis: false,
+    imagen: "assets/images/dead-by-daylight.jpg",
+    imagenDetalle: "assets/images/dead-by-daylight.jpg",
+    genero: "Terror, Supervivencia, Multijugador",
+    etiquetas: "Asimétrico, Supervivientes, Horror",
+    trailer: "https://www.youtube.com/embed/JGhIXLO3ulc",
+    descripcion: "Escapa del asesino o persigue a tus presas en este intenso juego de terror multijugador asimétrico."
+  },
+  {
+    id: "brawlhalla",
+    idJuego: "BRWL-14",
+    nombre: "Brawlhalla",
+    categoria: "Acción",
+    filtro: "str",
+    precio: 0,
+    esGratis: true,
+    imagen: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/291550/library_600x900_2x.jpg",
+    imagenDetalle: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/291550/library_600x900_2x.jpg",
+    genero: "Lucha, Acción, Multijugador",
+    etiquetas: "Combate, Plataformas, Competitivo",
+    trailer: "https://www.youtube.com/embed/8n6Q7w2YwXk",
+    descripcion: "Entra a la arena y combate por la gloria en este juego de lucha de plataformas gratuito y competitivo."
   }
 ];
 
 function renderizarCatalogo() {
   const catalogo = document.querySelector('#catalogo-productos');
+  const paginacion = document.querySelector('#paginacion-productos');
 
   if (!catalogo) {
     return;
@@ -165,6 +226,8 @@ function renderizarCatalogo() {
 
   const parametros = new URLSearchParams(window.location.search);
   const busqueda = (parametros.get('buscar') || '').trim();
+  const paginaSolicitada = Number.parseInt(parametros.get('pagina') || '1', 10);
+  const productosPorPagina = 8;
   const infoBusqueda = document.querySelector('#busqueda-info');
   const escaparHtml = (texto) => texto.replace(/[&<>"']/g, (c) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -190,12 +253,20 @@ function renderizarCatalogo() {
     infoBusqueda.innerHTML = '';
   }
 
+  const totalPaginas = Math.max(1, Math.ceil(productosAMostrar.length / productosPorPagina));
+  const paginaActual = Math.min(Math.max(Number.isNaN(paginaSolicitada) ? 1 : paginaSolicitada, 1), totalPaginas);
+  const inicio = (paginaActual - 1) * productosPorPagina;
+  const productosDePagina = productosAMostrar.slice(inicio, inicio + productosPorPagina);
+
   if (productosAMostrar.length === 0) {
     catalogo.innerHTML = '';
+    if (paginacion) {
+      paginacion.innerHTML = '';
+    }
     return;
   }
 
-  catalogo.innerHTML = productosAMostrar.map((producto) => {
+  catalogo.innerHTML = productosDePagina.map((producto) => {
     const precio = producto.esGratis
       ? '<span class="precio">Gratis</span>'
       : `<span class="precio">$${producto.precio.toLocaleString('es-CL')}</span>`;
@@ -218,6 +289,39 @@ function renderizarCatalogo() {
       </div>
     `;
   }).join('');
+
+  if (!paginacion) {
+    return;
+  }
+
+  const parametrosPaginacion = busqueda ? `&buscar=${encodeURIComponent(busqueda)}` : '';
+  const crearEnlacePagina = (pagina, etiqueta, esActiva = false, deshabilitado = false) => `
+    <li class="${deshabilitado ? 'disabled' : ''}">
+      <a class="${esActiva ? 'is_active' : ''}" href="producto.html?pagina=${pagina}${parametrosPaginacion}" data-pagina="${pagina}"${esActiva ? ' aria-current="page"' : ''}${deshabilitado ? ' aria-disabled="true"' : ''}>${etiqueta}</a>
+    </li>
+  `;
+
+  paginacion.innerHTML = [
+    crearEnlacePagina(Math.max(1, paginaActual - 1), '&lt;', false, paginaActual === 1),
+    ...Array.from({ length: totalPaginas }, (_, indice) => {
+      const pagina = indice + 1;
+      return crearEnlacePagina(pagina, pagina, pagina === paginaActual);
+    }),
+    crearEnlacePagina(Math.min(totalPaginas, paginaActual + 1), '&gt;', false, paginaActual === totalPaginas)
+  ].join('');
+
+  paginacion.querySelectorAll('a[data-pagina]').forEach((enlace) => {
+    enlace.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (!enlace.parentElement.classList.contains('disabled')) {
+        const nuevaUrl = new URL(enlace.href, window.location.href);
+        window.history.pushState({}, '', nuevaUrl);
+        renderizarCatalogo();
+        window.scrollTo({ top: document.querySelector('.trending').offsetTop - 80, behavior: 'smooth' });
+      }
+    });
+  });
 }
 
 renderizarCatalogo();
+window.addEventListener('popstate', renderizarCatalogo);
