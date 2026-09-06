@@ -57,7 +57,7 @@ article p {
 
 article a {
   display: inline-block;
-  color: #0071f8;
+  color: var(--color-primary);
   font-weight: 600;
 }
 
@@ -86,13 +86,13 @@ main article a {
   display: inline-block;
   margin-top: 20px;
   margin-bottom: 80px;
-  color: #0071f8;
+  color: var(--color-primary);
   font-weight: 600;
   transition: all .3s;
 }
 
 main article a:hover {
-  color: #ee626b;
+  color: var(--color-accent);
 }
 
 .trailer{

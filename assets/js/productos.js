@@ -161,8 +161,8 @@ function renderizarCatalogo() {
 
   catalogo.innerHTML = productos.map((producto) => {
     const precio = producto.esGratis
-      ? '<span class="price">Gratis</span>'
-      : `<span class="price">$${producto.precio.toLocaleString('es-CL')}</span>`;
+      ? '<span class="precio">Gratis</span>'
+      : `<span class="precio">$${producto.precio.toLocaleString('es-CL')}</span>`;
 
     return `
       <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items ${producto.filtro}">

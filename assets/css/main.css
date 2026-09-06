@@ -1,6 +1,13 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
 
+:root {
+  /* Paleta estilo Warframe: cian tecnológico + acento energía cálida */
+  --color-primary: #0E8AA8;
+  --color-secondary: #14B8CE;
+  --color-accent: #FF7A45;
+}
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
 pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
 s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
@@ -85,12 +92,12 @@ body {
 }
 
 ::selection {
-  background: #0071f8;
+  background: var(--color-primary);
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #0071f8;
+  background: var(--color-primary);
   color: #fff;
 }
 
@@ -112,11 +119,11 @@ body {
 
 .section-heading h2 em {
   font-style: normal;
-  color: #0071f8;
+  color: var(--color-primary);
 }
 
 .section-heading h6 {
-  color: #ee626b;
+  color: var(--color-accent);
   font-size: 15px;
   text-transform: uppercase;
   font-weight: 700;
@@ -124,7 +131,7 @@ body {
 
 .main-button a {
   display: inline-block;
-  background-color: #ee626b;
+  background-color: var(--color-accent);
   text-transform: uppercase;
   color: #fff;
   font-size: 14px;
@@ -137,7 +144,7 @@ body {
 }
 
 .main-button a:hover {
-  background-color: #0071f8;
+  background-color: var(--color-primary);
   color: #fff;
 }
 
@@ -208,7 +215,7 @@ body {
   height: 16px;
   top: 12px;
   left: 15px;
-  background: #0071f8;
+  background: var(--color-primary);
   border-radius: 50%;
   -webkit-transform: translateX(0);
   transform: translateX(0);
@@ -231,13 +238,13 @@ body {
   width: 16px;
   height: 16px;
   margin-left: 16px;
-  background: #0071f8;
+  background: var(--color-primary);
   border-radius: 50%;
 }
 
 
 .background-header {
-  background-color: #0071f8 !important;
+  background-color: var(--color-primary) !important;
   border-radius: 0px 0px 25px 25px;
   height: 80px!important;
   position: fixed!important;
@@ -292,7 +299,7 @@ body {
 }
 
 .background-header .main-nav .logo{
-  margin-top: 18px;
+  margin-top: 0px;
 }
 
 .header-area .main-nav ul.nav {
@@ -339,13 +346,13 @@ body {
 }
 
 .header-area .main-nav .nav li:last-child a {
-  background-color: #ee626b;
+  background-color: var(--color-accent);
   text-transform: uppercase;
   font-weight: 500;
 }
 
 .header-area .main-nav .nav li:last-child:hover a {
-  background-color: #ee626b;
+  background-color: var(--color-accent);
 }
 
 .header-area .main-nav .nav li:hover a {
@@ -537,7 +544,7 @@ body {
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #ee626b!important;
+    color: var(--color-accent)!important;
     opacity: 1;
   }
   .header-area.header-sticky .nav li.search-icon a {
@@ -661,7 +668,7 @@ body {
   display: inline-block;
   height: 50px;
   line-height: 50px;
-  background-color: #ee626b;
+  background-color: var(--color-accent);
   color: #fff;
   font-size: 15px;
   text-transform: uppercase;
@@ -676,7 +683,7 @@ body {
 }
 
 .main-banner .caption form button:hover {
-  background-color: #0071f8;
+  background-color: var(--color-primary);
 }
 
 .main-banner .right-image {
@@ -692,7 +699,7 @@ body {
   right: 10px;
   top: 8px;
   border-radius: 25px;
-  background-color: #008af8;
+  background-color: var(--color-secondary);
   font-size: 22px;
   text-transform: uppercase;
   font-weight: 700;
@@ -705,7 +712,7 @@ body {
   left: -25px;
   bottom: -25px;
   border-radius: 50%;
-  background-color: #ee626b;
+  background-color: var(--color-accent);
   font-size: 28px;
   text-transform: uppercase;
   font-weight: 700;
@@ -730,7 +737,7 @@ Services Style
 */
 
 .features {
-  margin-top: -80px;
+  margin-top: 60px;
 }
 
 .features .item {
@@ -753,13 +760,13 @@ Services Style
   display: inline-block;
   text-align: center;
   line-height: 90px;
-  background-color: #0071f8;
+  background-color: var(--color-primary);
   border-radius: 50%;
   transition: all .3s;
 }
 
 .features .item:hover .image {
-  background-color: #ee626b;
+  background-color: var(--color-accent);
 }
 
 
@@ -803,7 +810,7 @@ Trending Style
   right: 20px;
   top: 20px;
   border-radius: 10px;
-  background-color: #008af8;
+  background-color: var(--color-secondary);
   font-size: 17px;
   text-transform: uppercase;
   font-weight: 600;
@@ -835,7 +842,7 @@ Trending Style
   line-height: 40px;
   width: 40px;
   height: 40px;
-  background-color: #ee626b;
+  background-color: var(--color-accent);
   color: #fff;
   border-radius: 50%;
   right: 25px;
@@ -844,11 +851,11 @@ Trending Style
 }
 
 .trending .item:hover .down-content h4 {
-  color: #0071f8;
+  color: var(--color-primary);
 }
 
 .trending .item:hover .down-content a {
-  background-color: #0071f8;
+  background-color: var(--color-primary);
 }
 
 
@@ -901,7 +908,7 @@ Trending Style
   line-height: 40px;
   height: 40px;
   padding: 0px 15px;
-  background-color: #ee626b;
+  background-color: var(--color-accent);
   color: #fff;
   border-radius: 20px;
   font-size: 15px;
@@ -914,11 +921,11 @@ Trending Style
 }
 
 .most-played .item:hover .down-content h4 {
-  color: #0071f8;
+  color: var(--color-primary);
 }
 
 .most-played .item:hover .down-content a {
-  background-color: #0071f8;
+  background-color: var(--color-primary);
 }
 
 
@@ -933,7 +940,7 @@ Categories Style
 }
 
 .categories .item  {
-  background-color: #0071f8;
+  background-color: var(--color-primary);
   position: relative;
   border-radius: 25px;
   text-align: center;
@@ -1032,7 +1039,7 @@ CTA Style
   display: inline-block;
   height: 50px;
   line-height: 50px;
-  background-color: #ee626b;
+  background-color: var(--color-accent);
   color: #fff;
   font-size: 15px;
   text-transform: uppercase;
@@ -1047,7 +1054,7 @@ CTA Style
 }
 
 .cta .subscribe form button:hover {
-  background-color: #0071f8;
+  background-color: var(--color-primary);
 }
 
 
@@ -1059,10 +1066,10 @@ Footer Style
 
 footer {
   margin-top: 150px;
-  background-color: #0071f8;
+  background-color: var(--color-primary);
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(../images/footer-bg.jpg);
+  background-image: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   min-height: 150px;
   border-radius: 150px 150px 0px 0px;
 }
@@ -1094,7 +1101,7 @@ Page Header Style
 */
 
 .page-heading {
-  background-image: url(../images/page-heading-bg.jpg);
+  background-image: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   border-radius: 0px 0px 150px 150px;
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -1148,7 +1155,7 @@ Page Header Style
 }
 
 .trending ul.trending-filter li a.is_active {
-  background-color: #ee626b;
+  background-color: var(--color-accent);
   color: #fff;
 }
 
@@ -1157,7 +1164,7 @@ Page Header Style
 }
 
 .trending ul.trending-filter li a:hover {
-  color: #ee626b;
+  color: var(--color-accent);
 }
 
 .trending-box .item  {
@@ -1188,7 +1195,7 @@ Page Header Style
   right: 20px;
   top: 20px;
   border-radius: 10px;
-  background-color: #008af8;
+  background-color: var(--color-secondary);
   font-size: 17px;
   text-transform: uppercase;
   font-weight: 600;
@@ -1220,7 +1227,7 @@ Page Header Style
   line-height: 40px;
   width: 40px;
   height: 40px;
-  background-color: #ee626b;
+  background-color: var(--color-accent);
   color: #fff;
   border-radius: 50%;
   right: 25px;
@@ -1229,11 +1236,11 @@ Page Header Style
 }
 
 .trending-box .item:hover .down-content h4 {
-  color: #0071f8;
+  color: var(--color-primary);
 }
 
 .trending-box .item:hover .down-content a {
-  background-color: #0071f8;
+  background-color: var(--color-primary);
 }
 
 .trending ul.pagination {
@@ -1264,7 +1271,7 @@ Page Header Style
 
 .trending ul.pagination li a:hover,
 .trending ul.pagination li a.is_active {
-  background-color: #0071f8;
+  background-color: var(--color-primary);
   color: #fff;
 }
 
@@ -1292,7 +1299,7 @@ Page Header Style
 .single-product span.precio {
   font-size: 27px;
   font-weight: 700;
-  color: #0071f8;
+  color: var(--color-primary);
 }
 
 .single-product span.precio em {
@@ -1328,7 +1335,7 @@ Page Header Style
   display: inline-block;
   height: 50px;
   line-height: 50px;
-  background-color: #ee626b;
+  background-color: var(--color-accent);
   color: #fff;
   font-size: 15px;
   text-transform: uppercase;
@@ -1344,7 +1351,7 @@ Page Header Style
 }
 
 .single-product form button:hover {
-  background-color: #0071f8;
+  background-color: var(--color-primary);
 }
 
 .single-product ul {
@@ -1355,7 +1362,7 @@ Page Header Style
   display: block;
   margin: 20px 0px;
   font-size: 14px;
-  color: #0071f8;
+  color: var(--color-primary);
 }
 
 .single-product ul li:last-child {
@@ -1402,7 +1409,7 @@ Page Header Style
 }
 
 .tabs-content .nav-tabs .nav-link.active {
-  color: #0071f8;
+  color: var(--color-primary);
 }
 
 .tabs-content .tab-content {
@@ -1491,7 +1498,7 @@ Contact PAge Style
   display: inline-block;
   height: 50px;
   line-height: 50px;
-  background-color: #ee626b;
+  background-color: var(--color-accent);
   color: #fff;
   font-size: 15px;
   text-transform: uppercase;
@@ -1503,7 +1510,7 @@ Contact PAge Style
 }
 
 .contact-page .right-content form button:hover {
-  background-color: #0071f8;
+  background-color: var(--color-primary);
 }
 
 /*
@@ -1520,6 +1527,18 @@ body {
   .header-area {
     top: 0;
   }
+  .main-banner {
+    padding: 130px 0px 50px;
+    border-radius: 0px 0px 50px 50px;
+    background-position: center center !important;
+  }
+  .main-banner .caption h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .main-banner .caption p {
+    margin-bottom: 40px;
+  }
   .main-banner .right-image span.oferta {
     left: 20px;
     bottom: 20px;
@@ -1528,6 +1547,26 @@ body {
     position: relative;
     width: 100%;
     margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-banner {
+    padding: 110px 0px 40px;
+    border-radius: 0px 0px 30px 30px;
+  }
+  .main-banner .caption h2 {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .main-banner {
+    padding: 180px 0px 90px;
+    background-position: center center !important;
+  }
+  .main-banner .caption h2 {
+    font-size: 36px;
   }
 }
 
