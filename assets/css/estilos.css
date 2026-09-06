@@ -33,7 +33,8 @@
 
 .trending .item .thumb img,
 .most-played .item .thumb img,
-.trending-box .item .thumb img {
+.trending-box .item .thumb img,
+.categories .item .thumb img {
   height: 220px;
   object-fit: cover;
 }
