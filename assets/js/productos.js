@@ -163,7 +163,39 @@ function renderizarCatalogo() {
     return;
   }
 
-  catalogo.innerHTML = productos.map((producto) => {
+  const parametros = new URLSearchParams(window.location.search);
+  const busqueda = (parametros.get('buscar') || '').trim();
+  const infoBusqueda = document.querySelector('#busqueda-info');
+  const escaparHtml = (texto) => texto.replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[c]);
+
+  let productosAMostrar = productos;
+  if (busqueda !== '') {
+    const termino = busqueda.toLowerCase();
+    productosAMostrar = productos.filter((producto) => producto.nombre.toLowerCase().includes(termino));
+    const busquedaSegura = escaparHtml(busqueda);
+
+    if (infoBusqueda) {
+      infoBusqueda.innerHTML = `
+        <p class="busqueda-resultado">
+          ${productosAMostrar.length > 0
+            ? `Resultados para "<strong>${busquedaSegura}</strong>" (${productosAMostrar.length})`
+            : `No encontramos resultados para "<strong>${busquedaSegura}</strong>"`}
+          — <a href="producto.html">ver catálogo completo</a>
+        </p>
+      `;
+    }
+  } else if (infoBusqueda) {
+    infoBusqueda.innerHTML = '';
+  }
+
+  if (productosAMostrar.length === 0) {
+    catalogo.innerHTML = '';
+    return;
+  }
+
+  catalogo.innerHTML = productosAMostrar.map((producto) => {
     const precio = producto.esGratis
       ? '<span class="precio">Gratis</span>'
       : `<span class="precio">$${producto.precio.toLocaleString('es-CL')}</span>`;

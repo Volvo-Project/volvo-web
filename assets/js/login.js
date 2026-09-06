@@ -1,5 +1,12 @@
 const form = document.querySelector('#formLogin');
 
+if (new URLSearchParams(window.location.search).get('motivo') === 'admin-requerido') {
+    const avisoInicial = document.querySelector('#aviso');
+    avisoInicial.textContent = "Debes iniciar sesión con una cuenta de administrador para acceder al panel";
+    avisoInicial.className = "aviso mt-3 text-center alert alert-danger";
+    avisoInicial.hidden = false;
+}
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     const aviso = document.querySelector('#aviso');
@@ -53,20 +60,21 @@ form.addEventListener("submit", (e) => {
         const rol = cuenta.rol || "Cliente";
         localStorage.setItem("usuarioSesion", JSON.stringify({ nombre: cuenta.nombre, correo, rol }));
 
-        if (rol === "Administrador") {
-            window.location.href = "admin/home.html";
-            return;
-        }
-
-        aviso.textContent = "Aviso: Sesión iniciada correctamente";
+        aviso.textContent = "Aviso: Sesión iniciada correctamente. Redirigiendo...";
         aviso.className = "aviso mt-3 text-center alert alert-success";
         aviso.hidden = false;
         form.reset();
 
-        const volverDespuesDeLogin = localStorage.getItem("volverDespuesDeLogin");
-        if (volverDespuesDeLogin) {
-            localStorage.removeItem("volverDespuesDeLogin");
-            window.location.href = volverDespuesDeLogin;
+        const destino = rol === "Administrador"
+            ? "admin/home.html"
+            : localStorage.getItem("volverDespuesDeLogin");
+
+        localStorage.removeItem("volverDespuesDeLogin");
+
+        if (destino) {
+            setTimeout(() => {
+                window.location.href = destino;
+            }, 800);
         }
     } else if (valido) {
         aviso.textContent = "El correo o la contraseña no son correctos";

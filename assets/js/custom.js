@@ -52,9 +52,32 @@
     }
 
     if($('.menu-trigger').length){
-        $(".menu-trigger").on('click', function() { 
+        $(".menu-trigger").on('click', function() {
             $(this).toggleClass('active');
             $('.header-area .nav').slideToggle(200);
+        });
+    }
+
+    const formSubscribe = document.querySelector('#subscribe');
+    if (formSubscribe) {
+        formSubscribe.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const avisoSubscribe = document.querySelector('#subscribe-aviso');
+            const inputEmail = document.querySelector('#exampleInputEmail1');
+            const correo = inputEmail.value.trim();
+            const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
+
+            if (!correoValido) {
+                avisoSubscribe.className = "avisoerror";
+                avisoSubscribe.textContent = "Ingresa un correo electrónico válido";
+                avisoSubscribe.hidden = false;
+                return;
+            }
+
+            avisoSubscribe.className = "aviso";
+            avisoSubscribe.textContent = "¡Listo! Te suscribiste con " + correo + ". Revisa tu correo por el descuento.";
+            avisoSubscribe.hidden = false;
+            formSubscribe.reset();
         });
     }
 
@@ -95,6 +118,27 @@
     
 })(window.jQuery);
 
+function actualizarContadorCarrito() {
+    const contador = document.querySelector('#carrito-contador');
+    if (!contador) {
+        return;
+    }
+    let carrito = [];
+    try {
+        carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    } catch (e) {
+        carrito = [];
+    }
+    const totalUnidades = carrito.reduce((total, item) => total + (item.cantidad || 0), 0);
+    if (totalUnidades > 0) {
+        contador.textContent = totalUnidades;
+        contador.hidden = false;
+    } else {
+        contador.hidden = true;
+    }
+}
+actualizarContadorCarrito();
+
 const juegosBanner = [
     {
         fondo: "assets/images/wj1cjy6hy0t51.jpg", 
@@ -117,6 +161,9 @@ let indiceActual = 0;
 
 function cambiarBanner() {
     const banner = document.querySelector('.main-banner');
+    if (!banner) {
+        return;
+    }
     const imgTarjeta = document.querySelector('.main-banner .right-image img');
     const txtPrecio = document.querySelector('.main-banner .right-image .precio');
     const txtOferta = document.querySelector('.main-banner .right-image .oferta');
@@ -145,4 +192,6 @@ function cambiarBanner() {
     }, 400);
 }
 
-setInterval(cambiarBanner, 10000);
+if (document.querySelector('.main-banner')) {
+    setInterval(cambiarBanner, 10000);
+}

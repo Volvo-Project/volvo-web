@@ -16,6 +16,11 @@ if (cuerpoUsuarios) {
   cuerpoUsuarios.addEventListener('click', (e) => {
     if (e.target.classList.contains('btn-eliminar')) {
       const id = e.target.dataset.id;
+      const usuario = obtenerUsuariosAdmin().find(p => p.run === id);
+      const nombre = usuario ? `${usuario.nombre} ${usuario.apellidos}` : "este usuario";
+      if (!window.confirm(`¿Eliminar a "${nombre}" del listado? Esta acción no se puede deshacer.`)) {
+        return;
+      }
       const lista = obtenerUsuariosAdmin().filter(p => p.run !== id);
       guardarUsuariosAdmin(lista);
       renderizarTablaUsuarios();

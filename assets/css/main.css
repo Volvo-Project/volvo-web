@@ -633,9 +633,10 @@ body {
 
 .main-banner .caption h2:after {
   position: absolute;
-  background-image: url(../images/caption-dec.png);
+  background-image: linear-gradient(to right, var(--color-accent), transparent);
+  border-radius: 4px;
   width: 202px;
-  height: 12px;
+  height: 6px;
   content: '';
   left: 125px;
   bottom: 0;

@@ -16,6 +16,11 @@ if (cuerpoProductos) {
   cuerpoProductos.addEventListener('click', (e) => {
     if (e.target.classList.contains('btn-eliminar')) {
       const id = e.target.dataset.id;
+      const producto = obtenerProductosAdmin().find(p => p.id === id);
+      const nombre = producto ? producto.nombre : "este producto";
+      if (!window.confirm(`¿Eliminar "${nombre}" del catálogo? Esta acción no se puede deshacer.`)) {
+        return;
+      }
       const lista = obtenerProductosAdmin().filter(p => p.id !== id);
       guardarProductosAdmin(lista);
       renderizarTabla();
@@ -33,7 +38,7 @@ function renderizarTabla() {
       <td>${p.idJuego}</td>
       <td>${p.nombre}</td>
       <td>${p.categoria}</td>
-      <td>$${p.precio}</td>
+      <td>$${p.precio.toLocaleString('es-CL')}</td>
       <td>${p.stock}</td>
       <td>
         <a href="producto-form.html?id=${p.id}">Editar</a>

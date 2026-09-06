@@ -47,8 +47,8 @@
               <li><a href="login.html">Iniciar sesión</a></li>
               <li><a href="registro.html">Registrarse</a></li>
               <li>
-                <a href="carrito.html" aria-label="Ver carrito de compras">
-                  <i class="fa-solid fa-cart-shopping"></i>
+                <a href="carrito.html" aria-label="Ver carrito de compras" class="cart-link">
+                  <i class="fa-solid fa-cart-shopping"></i><span id="carrito-contador" class="carrito-contador" hidden>0</span>
                 </a>
               </li>
             </ul>
@@ -88,7 +88,7 @@
           <span class="price" id="prod-precio">Gratis</span>
           <p id="prod-descripcion">Sumérgete en el universo de Warframe: acción cooperativa, personalización total de tu personaje y combates espectaculares. Compra hoy en Volvo y aprovecha nuestro precio de lanzamiento.</p>
           <form id="qty" action="#">
-            <input type="number" class="form-control" id="cantidad" aria-describedby="quantity" value = "1" placeholder="1">
+            <input type="number" class="form-control" id="cantidad" aria-describedby="quantity" value="1" min="1" step="1" placeholder="1">
             <button type="submit"><i class="fa fa-shopping-bag"></i> AGREGAR AL CARRITO</button>
           </form><p id="aviso" class="aviso" hidden></p>
           <ul>

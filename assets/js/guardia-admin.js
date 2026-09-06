@@ -9,6 +9,6 @@
     }
 
     if (!sesion || sesion.rol !== 'Administrador') {
-        window.location.href = '../login.html';
+        window.location.href = '../login.html?motivo=admin-requerido';
     }
 })();
