@@ -331,26 +331,42 @@ function renderizarCatalogo() {
     });
   });
 
+  // Solo marcamos cuál está activo: los botones de filtro son HTML fijo,
+  // así que sus listeners se registran una sola vez en activarFiltros().
   const filtros = document.querySelector('.trending-filter');
   if (filtros) {
     filtros.querySelectorAll('a[data-filter]').forEach((enlace) => {
-      const filtro = enlace.dataset.filter;
-      enlace.classList.toggle('is_active', filtro === filtroSolicitado);
-      enlace.addEventListener('click', (event) => {
-        event.preventDefault();
-        const nuevaUrl = new URL(window.location.href);
-        nuevaUrl.searchParams.delete('pagina');
-        nuevaUrl.searchParams.delete('filtro');
-        if (filtro !== '*') {
-          nuevaUrl.searchParams.set('filtro', filtro);
-        }
-        window.history.pushState({}, '', nuevaUrl);
-        renderizarCatalogo();
-        window.scrollTo({ top: document.querySelector('.trending').offsetTop - 80, behavior: 'smooth' });
-      });
+      enlace.classList.toggle('is_active', enlace.dataset.filter === filtroSolicitado);
     });
   }
 }
 
+// Se llama UNA vez al cargar la página. Si esto viviera dentro de
+// renderizarCatalogo() se acumularía un listener nuevo en cada render.
+function activarFiltros() {
+  const filtros = document.querySelector('.trending-filter');
+
+  if (!filtros) {
+    return;
+  }
+
+  filtros.querySelectorAll('a[data-filter]').forEach((enlace) => {
+    const filtro = enlace.dataset.filter;
+    enlace.addEventListener('click', (event) => {
+      event.preventDefault();
+      const nuevaUrl = new URL(window.location.href);
+      nuevaUrl.searchParams.delete('pagina');
+      nuevaUrl.searchParams.delete('filtro');
+      if (filtro !== '*') {
+        nuevaUrl.searchParams.set('filtro', filtro);
+      }
+      window.history.pushState({}, '', nuevaUrl);
+      renderizarCatalogo();
+      window.scrollTo({ top: document.querySelector('.trending').offsetTop - 80, behavior: 'smooth' });
+    });
+  });
+}
+
 renderizarCatalogo();
+activarFiltros();
 window.addEventListener('popstate', renderizarCatalogo);
