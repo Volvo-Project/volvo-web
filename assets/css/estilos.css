@@ -147,6 +147,101 @@ color: #721c24;
   min-height: 100vh;
   margin: 0;
 }
+/* ---- Tarjetas del equipo en nosotros.html ---- */
+/* Reutilizan .features de la plantilla, pero con un icono en vez de una imagen */
+.equipo .item .image i {
+  font-size: 34px;
+  color: #fff;
+}
+.equipo .item p {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #7a7a7a;
+}
+/* ---- Preguntas frecuentes de nosotros.html ---- */
+/* El acordeon es de Bootstrap; aqui solo lo pintamos con los colores de Volvo */
+.faq .accordion-item {
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.faq .accordion-button {
+  font-size: 16px;
+  font-weight: 600;
+}
+.faq .accordion-button:not(.collapsed) {
+  color: var(--color-primary);
+  background-color: rgba(14, 138, 168, .08);
+  box-shadow: none;
+}
+.faq .accordion-button:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+.faq .accordion-body {
+  font-size: 15px;
+  color: #7a7a7a;
+}
+/* ---- Opiniones de la ficha de producto ---- */
+.opinion {
+  border-bottom: 1px solid #eaeaea;
+  padding: 15px 0;
+  /* la plantilla centra el texto de las pestanas y aqui se ve mejor alineado */
+  text-align: left;
+}
+.opinion:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.opinion-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.opinion-cabecera h5 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+.opinion-estrellas {
+  color: var(--color-accent);
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.opinion p {
+  margin: 0;
+  font-size: 14px;
+  color: #4a4a4a;
+}
+/* ---- Barra superior del panel ---- */
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 14px 25px;
+  background-color: #00000a;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+.admin-marca {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.admin-marca:hover {
+  color: #fff;
+}
+.admin-marca span {
+  color: var(--color-secondary);
+}
+.admin-sesion {
+  margin: 0;
+  color: #cfd3dc;
+  font-size: 14px;
+}
 .admin-layout {
   display: flex;
   flex: 1;
@@ -377,6 +472,13 @@ body {
    de arriba cuando se cumple la condición.
    ============================================================ */
 @media (max-width: 768px) {
+  /* La barra superior se apila para que quepa el nombre de la sesion */
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 12px 15px;
+  }
   .admin-layout {
     flex-direction: column;
   }

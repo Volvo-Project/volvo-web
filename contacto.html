@@ -72,30 +72,32 @@
         </div>
     </div>
 <main class="container py-5 d-flex justify-content-center">
-  <form id="formContacto" novalidate class="p-4 shadow rounded" style="max-width: 500px; width: 100%;">
+  <section class="w-100" style="max-width: 500px;" aria-label="Formulario de contacto">
+    <form id="formContacto" novalidate class="p-4 shadow rounded" style="max-width: 500px; width: 100%;">
 
-    <div class="mb-3">
-      <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="nombre" name="nombre" maxlength="100" autocomplete="name" placeholder="Ingrese su nombre">
-      <span class="error text-danger small" id="errorNombre"></span>
-    </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="100" autocomplete="name" placeholder="Ingrese su nombre">
+        <span class="error text-danger small" id="errorNombre"></span>
+      </div>
 
-    <div class="mb-3">
-      <label for="correo" class="form-label">Correo</label>
-      <input type="email" class="form-control" id="correo" name="correo" maxlength="100" autocomplete="email" placeholder="ejemplo@duoc.cl">
-      <span class="error text-danger small" id="errorCorreo"></span>
-    </div>
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo</label>
+        <input type="email" class="form-control" id="correo" name="correo" maxlength="100" autocomplete="email" placeholder="ejemplo@duoc.cl">
+        <span class="error text-danger small" id="errorCorreo"></span>
+      </div>
 
-    <div class="mb-3">
-      <label for="comentario" class="form-label">Comentario</label>
-      <textarea class="form-control" id="comentario" name="comentario" maxlength="500" rows="5" placeholder="Escribe tu comentario"></textarea>
-      <span class="error text-danger small" id="errorComentario"></span>
-    </div>
+      <div class="mb-3">
+        <label for="comentario" class="form-label">Comentario</label>
+        <textarea class="form-control" id="comentario" name="comentario" maxlength="500" rows="5" placeholder="Escribe tu comentario"></textarea>
+        <span class="error text-danger small" id="errorComentario"></span>
+      </div>
 
-    <button type="submit" class="btn btn-primary w-100">Enviar</button>
-    <p id="aviso" class="aviso mt-3 text-center" hidden></p>
+      <button type="submit" class="btn btn-primary w-100">Enviar</button>
+      <p id="aviso" class="aviso mt-3 text-center" hidden></p>
 
-  </form>
+    </form>
+  </section>
 </main>
 
   <footer>

@@ -13,8 +13,17 @@
     }
 })();
 
-// Cerrar sesión desde el panel: borra la sesión y vuelve al login
+// Cerrar sesión desde el panel: borra la sesión y vuelve al login.
+// Aprovechamos el mismo evento para escribir el nombre en la barra superior.
 document.addEventListener('DOMContentLoaded', () => {
+    const etiqueta = document.querySelector('#admin-sesion');
+    if (etiqueta) {
+        const sesion = JSON.parse(localStorage.getItem('usuarioSesion') || 'null');
+        if (sesion) {
+            etiqueta.textContent = 'Sesión: ' + sesion.nombre;
+        }
+    }
+
     const boton = document.querySelector('#cerrar-sesion');
     if (boton) {
         boton.addEventListener('click', (e) => {

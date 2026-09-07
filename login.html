@@ -73,23 +73,25 @@
 </div>
 
 <main class="container py-5 d-flex justify-content-center">
-  <form id="formLogin" novalidate class="p-4 shadow rounded" style="max-width: 400px; width: 100%;">
+  <section class="w-100" style="max-width: 400px;" aria-label="Formulario de inicio de sesion">
+    <form id="formLogin" novalidate class="p-4 shadow rounded" style="max-width: 400px; width: 100%;">
 
-    <div class="mb-3">
-      <label for="correo" class="form-label">Correo</label>
-      <input type="email" class="form-control" id="correo" name="correo" maxlength="100" autocomplete="username" placeholder="ejemplo@duoc.cl" required>
-      <span class="error text-danger small" id="errorCorreo"></span>
-    </div>
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo</label>
+        <input type="email" class="form-control" id="correo" name="correo" maxlength="100" autocomplete="username" placeholder="ejemplo@duoc.cl" required>
+        <span class="error text-danger small" id="errorCorreo"></span>
+      </div>
 
-    <div class="mb-3">
-      <label for="contrasena" class="form-label">Contraseña</label>
-      <input type="password" class="form-control" id="contrasena" name="contrasena" maxlength="10" autocomplete="current-password" placeholder="Entre 4 y 10 caracteres" required>
-      <span class="error text-danger small" id="errorContrasena"></span>
-    </div>
+      <div class="mb-3">
+        <label for="contrasena" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="contrasena" name="contrasena" maxlength="10" autocomplete="current-password" placeholder="Entre 4 y 10 caracteres" required>
+        <span class="error text-danger small" id="errorContrasena"></span>
+      </div>
 
-    <button type="submit" class="btn btn-primary w-100">Ingresar</button>
-    <p id="aviso" class="aviso mt-3 text-center" hidden></p>
-  </form>
+      <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+      <p id="aviso" class="aviso mt-3 text-center" hidden></p>
+    </form>
+  </section>
 </main>
 
   <footer>

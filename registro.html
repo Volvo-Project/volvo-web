@@ -60,34 +60,36 @@
     </div>
 
     <main class="container py-5 d-flex justify-content-center">
-        <form id="formRegistro" novalidate class="p-4 shadow rounded" style="max-width: 400px; width: 100%;">
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" maxlength="60" autocomplete="name" placeholder="Ingrese su nombre" required>
-                <span class="error text-danger small" id="errorNombre"></span>
-            </div>
+      <section class="w-100" style="max-width: 400px;" aria-label="Formulario de registro">
+          <form id="formRegistro" novalidate class="p-4 shadow rounded" style="max-width: 400px; width: 100%;">
+              <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombre" name="nombre" maxlength="60" autocomplete="name" placeholder="Ingrese su nombre" required>
+                  <span class="error text-danger small" id="errorNombre"></span>
+              </div>
 
-            <div class="mb-3">
-                <label for="correoRegistro" class="form-label">Correo</label>
-                <input type="email" class="form-control" id="correoRegistro" name="correo" maxlength="100" autocomplete="email" placeholder="ejemplo@duoc.cl" required>
-                <span class="error text-danger small" id="errorCorreoRegistro"></span>
-            </div>
+              <div class="mb-3">
+                  <label for="correoRegistro" class="form-label">Correo</label>
+                  <input type="email" class="form-control" id="correoRegistro" name="correo" maxlength="100" autocomplete="email" placeholder="ejemplo@duoc.cl" required>
+                  <span class="error text-danger small" id="errorCorreoRegistro"></span>
+              </div>
 
-            <div class="mb-3">
-                <label for="contrasenaRegistro" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="contrasenaRegistro" name="contrasena" maxlength="10" autocomplete="new-password" placeholder="Entre 4 y 10 caracteres" required>
-                <span class="error text-danger small" id="errorContrasenaRegistro"></span>
-            </div>
+              <div class="mb-3">
+                  <label for="contrasenaRegistro" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="contrasenaRegistro" name="contrasena" maxlength="10" autocomplete="new-password" placeholder="Entre 4 y 10 caracteres" required>
+                  <span class="error text-danger small" id="errorContrasenaRegistro"></span>
+              </div>
 
-            <div class="mb-3">
-                <label for="confirmarContrasena" class="form-label">Confirmar contraseña</label>
-                <input type="password" class="form-control" id="confirmarContrasena" name="confirmarContrasena" maxlength="10" autocomplete="new-password" placeholder="Repita su contraseña" required>
-                <span class="error text-danger small" id="errorConfirmarContrasena"></span>
-            </div>
+              <div class="mb-3">
+                  <label for="confirmarContrasena" class="form-label">Confirmar contraseña</label>
+                  <input type="password" class="form-control" id="confirmarContrasena" name="confirmarContrasena" maxlength="10" autocomplete="new-password" placeholder="Repita su contraseña" required>
+                  <span class="error text-danger small" id="errorConfirmarContrasena"></span>
+              </div>
 
-            <button type="submit" class="btn btn-primary w-100">Registrarse</button>
-            <p id="avisoRegistro" class="aviso mt-3 text-center" hidden></p>
-        </form>
+              <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+              <p id="avisoRegistro" class="aviso mt-3 text-center" hidden></p>
+          </form>
+      </section>
     </main>
 
     <footer>

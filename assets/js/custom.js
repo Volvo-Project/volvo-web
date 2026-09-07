@@ -139,17 +139,23 @@ function actualizarContadorCarrito() {
 }
 actualizarContadorCarrito();
 
+// Juegos que rota el banner del inicio. El precio y el enlace deben coincidir
+// con lo que tiene el mismo juego en el arreglo de productos.js.
 const juegosBanner = [
     {
         fondo: "assets/images/wj1cjy6hy0t51.jpg", 
         tarjeta: "assets/images/assassinscreed2.jpg",
-        precio: "$29.990",
+        nombre: "Assassin's Creed",
+        enlace: "detalle-producto.html?id=assassins-creed",
+        precio: "$19.990",
         oferta: "-50%",
         posicion: "center bottom"
     },
     {
         fondo: "assets/images/igra-art-sushchestvo-warframe-voin-oruzhie-fantastika-landsh.jpg",
         tarjeta: "assets/images/warframe-portada.jpg",
+        nombre: "Warframe",
+        enlace: "detalle-producto.html?id=warframe",
         precio: "GRATIS",
         oferta: "",
         posicion: "center top"
@@ -165,6 +171,7 @@ function cambiarBanner() {
         return;
     }
     const imgTarjeta = document.querySelector('.main-banner .right-image img');
+    const enlaceTarjeta = document.querySelector('.main-banner .right-image a');
     const txtPrecio = document.querySelector('.main-banner .right-image .precio');
     const txtOferta = document.querySelector('.main-banner .right-image .oferta');
 
@@ -178,6 +185,11 @@ function cambiarBanner() {
         banner.style.backgroundImage = `linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 70%), url(${juegosBanner[indiceActual].fondo})`;
         banner.style.backgroundPosition = juegosBanner[indiceActual].posicion;
         imgTarjeta.src = juegosBanner[indiceActual].tarjeta;
+        imgTarjeta.alt = `Portada de ${juegosBanner[indiceActual].nombre}`;
+        // El enlace tambien cambia, si no la portada llevaria siempre al mismo juego
+        if (enlaceTarjeta) {
+            enlaceTarjeta.href = juegosBanner[indiceActual].enlace;
+        }
         txtPrecio.textContent = juegosBanner[indiceActual].precio;
 
         if (juegosBanner[indiceActual].oferta === "") {

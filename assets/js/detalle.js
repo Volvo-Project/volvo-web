@@ -30,12 +30,56 @@ function mostrarProducto(producto) {
     ? "Gratis"
     : `$${producto.precio.toLocaleString("es-CL")}`;
 
+  // Los productos sin trailer cargado esconden la sección completa,
+  // si no el iframe se quedaría con un src vacío.
   const trailerEl = document.getElementById("prod-trailer");
-  if (trailerEl) {
+  const seccionTrailer = document.getElementById("seccion-trailer");
+  if (trailerEl && producto.trailer) {
     trailerEl.src = `${producto.trailer}?autoplay=1&mute=1`;
     trailerEl.title = `Tráiler de ${producto.nombre}`;
+    if (seccionTrailer) {
+      seccionTrailer.hidden = false;
+    }
+  } else if (seccionTrailer) {
+    seccionTrailer.hidden = true;
   }
+
+  mostrarOpiniones(producto);
 
   // Deja el producto activo disponible globalmente para que carrito.js lo use
   window.productoActual = producto;
+}
+
+// Dibuja las opiniones del producto en la pestaña "Opiniones"
+function mostrarOpiniones(producto) {
+  const contenedor = document.getElementById("reviews");
+  const pestana = document.getElementById("reviews-tab");
+  if (!contenedor) {
+    return;
+  }
+
+  const opiniones = producto.opiniones || [];
+
+  if (pestana) {
+    pestana.textContent = `Opiniones (${opiniones.length})`;
+  }
+
+  if (opiniones.length === 0) {
+    contenedor.innerHTML = "<p>Este producto todavía no tiene opiniones.</p>";
+    return;
+  }
+
+  contenedor.innerHTML = opiniones.map((opinion) => {
+    // Cinco estrellas siempre: las llenas segun la nota y el resto vacias
+    const estrellas = "★".repeat(opinion.nota) + "☆".repeat(5 - opinion.nota);
+    return `
+      <article class="opinion">
+        <div class="opinion-cabecera">
+          <h5>${opinion.autor}</h5>
+          <span class="opinion-estrellas" aria-label="${opinion.nota} de 5 estrellas">${estrellas}</span>
+        </div>
+        <p>${opinion.texto}</p>
+      </article>
+    `;
+  }).join("");
 }
