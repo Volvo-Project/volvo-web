@@ -74,29 +74,26 @@
 
   <main>
 
-  <section class="section" style="padding: 60px 0;">
+  <section class="section cart-section" style="padding: 60px 0;">
     <div class="container">
       <h2 class="visually-hidden">Productos en tu carrito</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Producto</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
-            <th>Subtotal</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="carrito-cuerpo">
-          <!-- acá el JS va a insertar las filas -->
-        </tbody>
-      </table>
+      <div class="cart-layout">
+        <div class="cart-items" id="carrito-cuerpo">
+          <!-- acá el JS va a insertar los items -->
+        </div>
 
-      <h4 id="carrito-total"></h4>
-
-      <button id="vaciar-carrito" type="button">Vaciar carrito</button>
-      <button id="finalizar-compra" type="button">Finalizar compra</button>
-      <p id="aviso" class="aviso" hidden></p>
+        <aside class="cart-summary">
+          <h4 class="cart-summary-titulo">Resumen del pedido</h4>
+          <div class="cart-summary-total">
+            <span>Total</span>
+            <strong id="carrito-total"></strong>
+          </div>
+          <p class="cart-summary-nota">Los impuestos, si aplican, se calculan al finalizar la compra.</p>
+          <button id="finalizar-compra" type="button" class="btn-finalizar">Finalizar compra</button>
+          <button id="vaciar-carrito" type="button" class="btn-vaciar">Vaciar carrito</button>
+          <p id="aviso" class="aviso" hidden></p>
+        </aside>
+      </div>
     </div>
   </section>
 
