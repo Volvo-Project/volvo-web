@@ -63,10 +63,35 @@
 
 .trending .item .thumb img,
 .most-played .item .thumb img,
-.trending-box .item .thumb img,
-.categories .item .thumb img {
+.trending-box .item .thumb img {
   height: 220px;
   object-fit: cover;
+}
+
+.most-played .item .down-content h4 {
+  min-height: 42px;
+}
+
+
+.categories .item .thumb img {
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+.categories .item .thumb .category-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 45px 20px 18px;
+  background: linear-gradient(to top, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, 0) 100%);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  text-align: left;
+  pointer-events: none;
 }
 
 /*article*/

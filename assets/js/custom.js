@@ -28,29 +28,6 @@
         }
     })
 
-    const elem = document.querySelector('.trending-box');
-    const filtersElem = document.querySelector('.trending-filter');
-    if (elem && !document.querySelector('#paginacion-productos')) {
-        const rdn_events_list = new Isotope(elem, {
-            itemSelector: '.trending-items',
-            layoutMode: 'masonry'
-        });
-        if (filtersElem) {
-            filtersElem.addEventListener('click', function(event) {
-                if (!matchesSelector(event.target, 'a')) {
-                    return;
-                }
-                const filterValue = event.target.getAttribute('data-filter');
-                rdn_events_list.arrange({
-                    filter: filterValue
-                });
-                filtersElem.querySelector('.is_active').classList.remove('is_active');
-                event.target.classList.add('is_active');
-                event.preventDefault();
-            });
-        }
-    }
-
     if($('.menu-trigger').length){
         $(".menu-trigger").on('click', function() {
             $(this).toggleClass('active');
