@@ -18,27 +18,6 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
-}
-
-.clearfix {
-  display: inline-block;
-}
-
-html[xmlns] .clearfix {
-  display: block;
-}
-
-* html .clearfix {
-  height: 1%;
-}
-
 ul, li {
   padding: 0;
   margin: 0;
@@ -480,10 +459,6 @@ body {
   color: #fff;
 }
 
-.visible{
-  display:inline !important;
-}
-
 @media (max-width: 1200px) {
   .header-area .main-nav .nav li {
     padding-left: 5px;
@@ -534,21 +509,10 @@ body {
   .background-header .main-nav .logo {
     top: 0px;
   }
-  .background-header .main-nav .border-button {
-    top: 0px !important;
-  }
-  .header-area .main-nav .border-button {
-    position: absolute;
-    top: 15px;
-    right: 70px;
-  }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
     color: var(--color-accent)!important;
     opacity: 1;
-  }
-  .header-area.header-sticky .nav li.search-icon a {
-    width: 100%;
   }
   .header-area .nav li:last-child a {
     background-color: transparent !important;
@@ -1425,97 +1389,6 @@ Page Header Style
 
 /*
 ---------------------------------------------
-Contact PAge Style
----------------------------------------------
-*/
-
-.contact-page .left-text {
-  background-color: #f7f7f7;
-  border-radius: 25px;
-  padding: 60px;
-}
-
-.contact-page .left-text .section-heading {
-  margin-bottom: 50px;
-}
-
-.contact-page .left-text p {
-  margin-bottom: 50px;
-}
-
-.contact-page .left-text ul li {
-  display: block;
-  font-size: 16px;
-  color: #aaaaaa;
-  font-size: 300;
-  margin-bottom: 30px;
-}
-
-.contact-page .left-text ul li:last-child {
-  margin-bottom: 0px;
-}
-
-.contact-page .left-text ul li span {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  color: #4a4a4a;
-  margin-bottom: 5px;
-}
-
-.contact-page .right-content {
-  margin-left: 50px;
-}
-
-.contact-page .right-content #map {
-  margin-bottom: 60px;
-}
-
-.contact-page .right-content form input {
-  width: 100%;
-  height: 50px;
-  border-radius: 25px;
-  padding: 0px 20px;
-  background-color: #f7f7f7;
-  border: 1px solid #e7e7e7;
-  font-size: 14px;
-  color: #4a4a4a;
-  margin-bottom: 30px;
-}
-
-.contact-page .right-content form textarea {
-  width: 100%;
-  height: 130px;
-  border-radius: 25px;
-  padding: 20px 20px;
-  background-color: #f7f7f7;
-  border: 1px solid #e7e7e7;
-  font-size: 14px;
-  color: #4a4a4a;
-  margin-bottom: 30px;
-}
-
-.contact-page .right-content form button {
-  display: inline-block;
-  height: 50px;
-  line-height: 50px;
-  background-color: var(--color-accent);
-  color: #fff;
-  font-size: 15px;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 0px 25px;
-  border: none;
-  border-radius: 25px;
-  transition: all .3s;
-}
-
-.contact-page .right-content form button:hover {
-  background-color: var(--color-primary);
-}
-
-/*
----------------------------------------------
 Responsive Style
 ---------------------------------------------
 */
@@ -1636,14 +1509,6 @@ body {
   .page-heading {
     padding: 140px 0px 100px 0px;
   }
-  .contact-page .right-content {
-    margin-left: 0px;
-    margin-top: 45px;
-  }
-}
-
-@media (max-width: 1200px) {
-
 }
 
 .img-blog{
