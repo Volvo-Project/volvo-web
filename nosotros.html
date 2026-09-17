@@ -2,6 +2,17 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <script>
+      (function () {
+        try {
+          var tema = localStorage.getItem('volvo-theme');
+          if (!tema) {
+            tema = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          document.documentElement.setAttribute('data-theme', tema);
+        } catch (e) {}
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volvo | Nosotros</title>
     <meta name="description" content="Conoce la historia de Volvo y al equipo que desarrolla la tienda.">
